@@ -53,13 +53,13 @@ public class GameState {
 			locX = mouseX - diam / 2;
 		}
 		if (keyUP)
-			locY -= 2;
+			locY -= 10;
 		if (keyDOWN)
-			locY += 2;
+			locY += 10;
 		if (keyLEFT)
-			locX -= 2;
+			locX -= 10;
 		if (keyRIGHT)
-			locX += 2;
+			locX += 10;
 
 		locX = Math.max(locX, 0);
 		locX = Math.min(locX, GameFrame.GAME_WIDTH - diam);

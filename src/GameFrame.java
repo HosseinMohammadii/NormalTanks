@@ -101,8 +101,6 @@ public class GameFrame extends JFrame {
 		g2d.setColor(Color.GRAY);
 		g2d.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 		// Draw ball
-		g2d.setColor(Color.BLACK);
-		g2d.fillOval(state.locX, state.locY, state.diam, state.diam);
 
 		g2d.drawImage(image,state.locX,state.locY,null);
 
