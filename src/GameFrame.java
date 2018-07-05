@@ -43,7 +43,7 @@ public class GameFrame extends JFrame {
 		fpsHistory = new ArrayList<>(100);
 
 		try{
-			image = ImageIO.read(new File("Icon.png"));
+			image = ImageIO.read(new File("Resources\\Images\\tank.png"));
 		}
 		catch(IOException e){
 			System.out.println(e);
