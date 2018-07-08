@@ -1,9 +1,7 @@
 /*** In The Name of Allah ***/
 //yessssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics2D;
-import java.awt.Toolkit;
+import java.awt.*;
+import java.awt.geom.AffineTransform;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -11,6 +9,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+import javax.swing.plaf.basic.BasicTreeUI;
+
+import static javax.swing.plaf.basic.BasicTreeUI.*;
 
 /**
  * The window on which the rendering is performed.
@@ -22,13 +23,27 @@ import javax.swing.JFrame;
  * 
  * @author Seyed Mohammad Ghaffarian
  */
-public class GameFrame extends JFrame {
+public class GameFrame extends JFrame{
 	
 	public static final int GAME_HEIGHT = 730;                  // 720p game resolution
 	public static final int GAME_WIDTH = 16 * GAME_HEIGHT / 9;  // wide aspect ratio
 
 	//uncomment all /*...*/ in the class for using Tank icon instead of a simple circle
-	private BufferedImage image;
+	private BufferedImage tankImage;
+	private BufferedImage tankGunToopL1Image;
+	private BufferedImage tankGunToopL2Image;
+	private BufferedImage tankGunTirL1Image;
+	private BufferedImage bullet;
+	private double a= 0;
+	private double b= 0;
+	private double c= 0;
+	private int aa;
+	private int bb;
+	private int aaa,bbb;
+	private int aaaa , bbbb;
+	private boolean tirAlive;
+	private int tirX;
+	private int tirY;
 
 	private long lastRender;
 	private ArrayList<Float> fpsHistory;
@@ -43,7 +58,11 @@ public class GameFrame extends JFrame {
 		fpsHistory = new ArrayList<>(100);
 
 		try{
-			image = ImageIO.read(new File("Resources\\Images\\tank.png"));
+			tankImage = ImageIO.read(new File("Resources\\Images\\tank.png"));
+			tankGunToopL1Image = ImageIO.read(new File("Resources\\Images\\tankGun01.png"));
+			tankGunToopL2Image = ImageIO.read(new File("Resources\\Images\\tankGun1.png"));
+			tankGunTirL1Image = ImageIO.read(new File("Resources\\Images\\tankGun2.png"));
+			bullet = ImageIO.read(new File("Resources\\Images\\HeavyBullet2.png"));
 		}
 		catch(IOException e){
 			System.out.println(e);
@@ -102,7 +121,62 @@ public class GameFrame extends JFrame {
 		g2d.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 		// Draw ball
 
-		g2d.drawImage(image,state.locX,state.locY,null);
+		AffineTransform backup1 = g2d.getTransform();
+		AffineTransform trans1 = new AffineTransform();
+		aaa=(int) (state.locX+50*Math.sqrt(2)*Math.cos(state.teta+Math.PI*5/4));
+		bbb=(int) (state.locY+50*Math.sqrt(2)*Math.sin(state.teta+Math.PI*5/4));
+		trans1.rotate( state.teta, aaa, bbb ); // the points to rotate around (the center in my example, your left side for your problem)
+
+		g2d.transform( trans1 );
+		g2d.drawImage( tankImage, aaa, bbb,null );  // the actual location of the sprite
+
+		g2d.setTransform( backup1 ); // restore previous transform
+
+
+		double mouseX = MouseInfo.getPointerInfo().getLocation().getX();
+		double mouseY = MouseInfo.getPointerInfo().getLocation().getY();
+		a=Math.atan((state.locY-mouseY)/(state.locX-mouseX));
+		if(mouseX<state.locX)
+			a+=Math.PI;
+
+		aa= (int) (state.locX+33*Math.sqrt(2)*Math.cos(a+Math.PI*5/4));
+		bb= (int) (state.locY+33*Math.sqrt(2)*Math.sin(a+Math.PI*5/4));
+
+
+
+		AffineTransform backup = g2d.getTransform();
+		AffineTransform trans = new AffineTransform();
+		trans.rotate( a, aa, bb ); // the points to rotate around (the center in my example, your left side for your problem)
+		g2d.transform( trans );
+		g2d.drawImage( tankGunToopL1Image, aa, bb,null );  // the actual location of the sprite
+		g2d.setTransform( backup ); // restore previous transform
+
+
+		if (state.mousePress){
+			c=Math.atan((state.locY-mouseY)/(state.locX-mouseX));
+			if(mouseX<state.locX)
+				c+=Math.PI;
+			tirX= (int) (state.locX+Math.cos(c)*60);
+			tirY= (int) (state.locY+Math.sin(c)*60);
+			tirAlive=true;
+
+		}
+
+		if(tirAlive){
+			tirX += 13*Math.cos(c);
+			tirY += 13*Math.sin(c);
+			aaaa=(int) (tirX+11*Math.sqrt(2)*Math.cos(c+Math.PI*5/4));
+			bbbb=(int) (tirY+11*Math.sqrt(2)*Math.sin(c+Math.PI*5/4));
+			AffineTransform backup2 = g2d.getTransform();
+			AffineTransform trans2 = new AffineTransform();
+			trans2.rotate( c, aaaa, bbbb ); // the points to rotate around (the center in my example, your left side for your problem)
+			g2d.transform( trans2 );
+			g2d.drawImage( bullet, aaaa, bbbb,null );  // the actual location of the sprite
+			g2d.setTransform( backup2 ); // restore previous transform
+		}
+		g2d.setRenderingHint(
+				RenderingHints.KEY_RENDERING,
+				RenderingHints.VALUE_RENDER_QUALITY);
 
 
 		// Print FPS info
