@@ -24,19 +24,30 @@ import javax.sound.sampled.Clip;
  * @author Seyed Mohammad Ghaffarian
  */
 public class GameState {
-	
+
+	private boolean mouseReleas;
 	public int locX, locY, diam;
 	public boolean gameOver;
 	
-	private boolean keyUP, keyDOWN, keyRIGHT, keyLEFT;
+	private boolean keyUp, keyDOWN, keyRIGHT, keyLEFT;
 	public boolean nw,ne,sw,se;
-	public boolean mousePress;
-	private int mouseX, mouseY;
+	public boolean mousepress;
+	private boolean mouseClick;
+	public int mouseX, mouseY;
 	private int mouseXX, mouseYY;
 	private KeyHandler keyHandler;
 	private MouseHandler mouseHandler;
+	public double dgree;
 	public double teta;
-	private static final double P=Math.PI;
+	private static final double p=Math.PI;
+	private double changeAngleAmount;
+	private int tankSpeed;
+	private int prsentGun;
+	private int live;
+	private int HeavyGunRemain;
+	private int LightGunRemain;
+	private int HeavyGunLevel;
+	private int LightGunLevel;
 
 	private InputStream soundin ;
 	private AudioStream as ;
@@ -47,13 +58,15 @@ public class GameState {
 		diam = 0;
 		gameOver = false;
 		//
-		keyUP = false;
+		keyUp = false;
 		keyDOWN = false;
 		keyRIGHT = false;
 		keyLEFT = false;
-		teta=0;
+		dgree=0;
 		//
-		mousePress = false;
+		mousepress = false;
+		mouseClick = false;
+		mouseReleas = false;
 		mouseX = 0;
 		mouseY = 0;
 		//
@@ -66,136 +79,191 @@ public class GameState {
 	 * The method which updates the game state.
 	 */
 	public void update() {
-//		if (mousePress) {
+//		if (mousepress) {
 //			locY = mouseY - diam / 2;
 //			locX = mouseX - diam / 2;
 //		}
-		if (keyUP)
-			locY -= 10;
-		if (keyDOWN)
-			locY += 10;
-		if (keyLEFT)
-			locX -= 10;
-		if (keyRIGHT)
-			locX += 10;
+//		if (keyUp)
+//			locY -= 10;
+//		if (keyDOWN)
+//			locY += 10;
+//		if (keyLEFT)
+//			locX -= 10;
+//		if (keyRIGHT)
+//			locX += 10;
 
-//		if(keyRIGHT&&keyUP){
-//			if(teta==P*7/4){
-//				locX += 4;
-//				locY -= 4;
-//
+
+		if(keyRIGHT&&keyUp){
+			if(dgree==315){
+				locX += 4;
+				locY -= 4;
+
+			}
+			else if((dgree<=135)||(dgree>315)) {
+				dgree -= 3.75;
+				updateBydgree();
+			}
+			else if((dgree>135)&&(dgree<315)){
+				dgree += 3.75;
+				updateBydgree();
+			}
+		}
+
+		else if(keyDOWN&&keyLEFT){
+			if(dgree==135){
+				locX -= 4;
+				locY += 4;
+			}
+			else if((dgree<=315)&&(dgree>135)) {
+				dgree -= 3.75;
+				updateBydgree();
+			}
+			else if((dgree>315)||(dgree<135)) {
+				dgree += 3.75;
+				updateBydgree();
+			}
+		}
+		else if(keyRIGHT&&keyDOWN){
+			if(dgree==45) {
+				locX += 4;
+				locY += 4;
+			}
+			else if ((dgree<=225)&&(dgree>45)){
+				dgree -= 3.75;
+				updateBydgree();
+			}
+			else if ((dgree>225)||(dgree<45)){
+				dgree += 3.75;
+				updateBydgree();
+			}
+		}
+		else if(keyLEFT&&keyUp){
+			if(dgree==225) {
+				locX -= 4;
+				locY -= 4;
+			}
+			else if ((dgree<225)&&(dgree>=45)){
+				dgree += 3.75;
+				updateBydgree();
+			}
+			else if ((dgree>225)||(dgree<45)){
+				dgree -= 3.75;
+				updateBydgree();
+			}
+		}
+		else if(keyRIGHT&&(!keyDOWN)&&(!keyUp)){
+			if(dgree==0) {
+				locX += 7;
+			}
+			else if ((dgree<=180)&&(dgree>0)){
+				dgree -= 3.75;
+				updateBydgree();
+			}
+			else if ((dgree>180)||(dgree<0)){
+				dgree += 3.75;
+				updateBydgree();
+			}
+		}
+		else if(keyLEFT&&!keyDOWN&&!keyUp){
+			if(dgree==180) {
+				locX -= 7;
+			}
+			else if ((dgree<180)&&(dgree>=0)){
+				dgree += 3.75;
+				updateBydgree();
+			}
+			else if ((dgree>180)||(dgree<0)){
+				dgree -= 3.75;
+				updateBydgree();
+			}
+		}
+
+		else if(keyUp&&!keyLEFT&&!keyRIGHT){
+			if(dgree==270) {
+				locY -= 7;
+			}
+			else if ((dgree<=90)||(dgree>270)){
+				dgree -= 3.75;
+				updateBydgree();
+			}
+			else if ((dgree>90)&&(dgree<270)){
+				dgree += 3.75;
+				updateBydgree();
+			}
+		}
+
+		else if(keyDOWN&&!keyLEFT&&!keyRIGHT){
+			if(dgree==90) {
+				locY += 7;
+
+			}
+			else if ((dgree<90)||(dgree>=270)){
+				dgree += 3.75;
+				updateBydgree();
+			}
+			else if ((dgree>90)&&(dgree<270)){
+				dgree -= 3.75;
+				updateBydgree();
+			}
+		}
+//		System.out.println("dgree: "+ dgree);
+
+
+//		if(keyRIGHT){
+//			if(dgree==0) {
+//				locX += 7;
 //			}
-//			else if((teta<=P*3/4)&&(teta>P*7/4)) {
-//				teta -= P / 64;
-//				updateByTeta();
+//			else if ((dgree<=180)&&(dgree>0)){
+//				changeAngleAmount -= 3.75;
+//				updateBydgree2();
 //			}
-//			else if((teta>P*3/4)&&(teta<P*7/4)){
-//				teta += P / 64;
-//				updateByTeta();
+//			else if ((dgree>180)||(dgree<0)){
+//				changeAngleAmount += 3.75;
+//				updateBydgree2();
 //			}
 //		}
-//
-//		else if(keyDOWN&&keyLEFT){
-//			if(teta==P*3/4){
+//		if(keyLEFT){
+//			if(dgree==180) {
 //				locX -= 7;
+//			}
+//			else if ((dgree<180)&&(dgree>=0)){
+//				changeAngleAmount += 3.75;
+//				updateBydgree2();
+//			}
+//			else if ((dgree>180)||(dgree<0)){
+//				changeAngleAmount -= 3.75;
+//				updateBydgree2();
+//			}
+//		}
+//
+//		if(keyUp){
+//			if(dgree==270) {
+//				locY -= 7;
+//			}
+//			else if ((dgree<=90)||(dgree>270)){
+//				changeAngleAmount -= 3.75;
+//				updateBydgree2();
+//			}
+//			else if ((dgree>90)&&(dgree<270)){
+//				changeAngleAmount += 3.75;
+//				updateBydgree2();
+//			}
+//		}
+//
+//		if(keyDOWN){
+//			if(dgree==90) {
 //				locY += 7;
-//			}
-//			else if((teta<=P*7/4)&&(teta>P*3/4)) {
-//				teta -= P / 64;
-//				updateByTeta();
-//			}
-//			else if((teta>P*7/4)&&(teta<P*3/4)) {
-//				teta += P / 64;
-//				updateByTeta();
-//			}
-//		}
-//		else if(keyRIGHT&&keyDOWN){
-//			if(teta==P/4) {
-//				locX += 4;
-//				locY += 4;
-//			}
-//			else if ((teta<=P*5/4)&&(teta>P/4)){
-//				teta -= P/128;
-//				updateByTeta();
-//			}
-//			else if ((teta>P*5/4)&&(teta<P/4)){
-//				teta += P/64;
-//				updateByTeta();
-//			}
-//		}
-//		else if(keyLEFT&&keyUP){
-//			if(teta==P*5/4) {
-//				locX -= 4;
-//				locY -= 4;
-//			}
-//			else if ((teta<P*5/4)&&(teta>=P/4)){
-//				teta += P/64;
-//				updateByTeta();
-//			}
-//			else if ((teta>P*5/4)&&(teta<P/4)){
-//				teta -= P/64;
-//				updateByTeta();
-//			}
-//		}
-//		else if(keyRIGHT&&!keyDOWN&&!keyUP){
-//			if(teta==0) {
-//				locX += 10;
-//			}
-//			else if ((teta<=P)&&(teta==0)){
-//				teta -= P/64;
-//				updateByTeta();
-//			}
-//			else if ((teta>P)&&(teta<0)){
-//				teta += P/64;
-//				updateByTeta();
-//			}
-//		}
-//		else if(keyLEFT&&!keyDOWN&&!keyUP){
-//			if(teta==P) {
-//				locX -= 10;
-//			}
-//			else if ((teta<P)&&(teta>=0)){
-//				teta += P/64;
-//				updateByTeta();
-//			}
-//			else if ((teta>P)&&(teta<0)){
-//				teta -= P/64;
-//				updateByTeta();
-//			}
-//		}
-//
-//		else if(keyUP&&!keyLEFT&&!keyRIGHT){
-//			if(teta==P*3/2) {
-//				locY -= 10;
-//			}
-//			else if ((teta<=P/2)&&(teta>P*3/2)){
-//				teta -= P/64;
-//				updateByTeta();
-//			}
-//			else if ((teta>P/2)&&(teta<P*3/2)){
-//				teta += P/64;
-//				updateByTeta();
-//			}
-//		}
-//
-//		else if(keyDOWN&&!keyLEFT&&!keyRIGHT){
-//			if(teta==P/2) {
-//				locY -= 10;
 //
 //			}
-//			else if ((teta<P/2)&&(teta>=P*3/2)){
-//				teta -= P/64;
-//				updateByTeta();
+//			else if ((dgree<90)||(dgree>=270)){
+//				changeAngleAmount += 3.75;
+//				updateBydgree2();
 //			}
-//			else if ((teta>P/2)&&(teta<P*3/2)){
-//				teta += P/64;
-//				updateByTeta();
+//			else if ((dgree>90)&&(dgree<270)){
+//				changeAngleAmount -= 3.75;
+//				updateBydgree2();
 //			}
 //		}
-//		System.out.println("TETA: "+ teta);
-
-
-
 
 
 		locX = Math.max(locX, 0);
@@ -215,13 +283,78 @@ public class GameState {
 		return mouseHandler;
 	}
 
-	private void updateByTeta(){
-		if(teta>=2*P)
-			teta-=2*P;
-		if(teta<0)
-			teta+=2*P;
-		locX += 1*Math.cos(teta);
-		locY += 1*Math.sin(teta);
+	private void updateBydgree(){
+		if(dgree>=360)
+			dgree-=360;
+		if(dgree<0)
+			dgree+=360;
+		teta=p*dgree/180;
+		locX += 2*Math.cos(teta);
+		locY += 2*Math.sin(teta);
+		System.out.println("DEGREE:  "+dgree);
+	}
+	private void updateBydgree2(){
+		if(changeAngleAmount>3.5)
+			changeAngleAmount=3.5;
+		if(changeAngleAmount<-3.25)
+			changeAngleAmount=-3.5;
+		dgree+=changeAngleAmount;
+		if(dgree>=360)
+			dgree-=360;
+		if(dgree<0)
+			dgree+=360;
+		teta=p*dgree/180;
+		locX += 4*Math.cos(teta);
+		locY += 4*Math.sin(teta);
+		//System.out.println("DEGREE:  "+dgree);
+	}
+
+	public int getLocX() {
+		return locX;
+	}
+
+	public void setLocX(int locX) {
+		this.locX = locX;
+	}
+
+	public int getLocY() {
+		return locY;
+	}
+
+	public void setLocY(int locY) {
+		this.locY = locY;
+	}
+
+	public boolean isMouseClick() {
+		return mouseClick;
+	}
+
+	public void setMouseClick(boolean mouseClick) {
+		this.mouseClick = mouseClick;
+	}
+
+	public int getMouseX() {
+		return mouseX;
+	}
+
+	public void setMouseX(int mouseX) {
+		this.mouseX = mouseX;
+	}
+
+	public int getMouseY() {
+		return mouseY;
+	}
+
+	public void setMouseY(int mouseY) {
+		this.mouseY = mouseY;
+	}
+
+	public boolean isMouseReleas() {
+		return mouseReleas;
+	}
+
+	public boolean isMousepress() {
+		return mousepress;
 	}
 
 	/**
@@ -234,7 +367,7 @@ public class GameState {
 			switch (e.getKeyCode())
 			{
 				case KeyEvent.VK_UP:
-					keyUP = true;
+					keyUp = true;
 					break;
 				case KeyEvent.VK_DOWN:
 					keyDOWN = true;
@@ -258,7 +391,7 @@ public class GameState {
 			switch (e.getKeyCode())
 			{
 				case KeyEvent.VK_UP:
-					keyUP = false;
+					keyUp = false;
 					break;
 				case KeyEvent.VK_DOWN:
 					keyDOWN = false;
@@ -283,21 +416,31 @@ public class GameState {
 		public void mousePressed(MouseEvent e) {
 			mouseX = e.getX();
 			mouseY = e.getY();
-			mousePress = true;
+			mousepress = true;
+			mouseClick=true;
 
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
-			mousePress = false;
+			mousepress = false;
+			mouseClick = false;
+			mouseReleas = true;
 		}
 
 		@Override
 		public void mouseDragged(MouseEvent e) {
 			mouseX = e.getX();
 			mouseY = e.getY();
-			mousePress=false;
+			mousepress=false;
+			mouseClick=false;
 		}
+
+//		@Override
+//		public void mouseClicked(MouseEvent e) {
+//			if(e.getClickCount()==1)
+//				mouseClick=true;
+//		}
 	}
 }
 
