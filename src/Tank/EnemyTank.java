@@ -21,7 +21,7 @@ public class EnemyTank {
     protected int HeavyGunLevel;
     protected int LightGunLevel;
     private double rotateSpeedRadius;
-    //gjbjb
+
 
 
 
