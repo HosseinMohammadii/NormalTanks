@@ -210,7 +210,7 @@ public class GameFrame extends JFrame{
 //				cc+=180;
 //			d=60;
 //			tirAlive=true;
-		////
+		//
 //
 //		}
 //
