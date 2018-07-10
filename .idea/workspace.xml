@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="85613aeb-b8a8-437c-81e3-bf60a8c3b782" name="Default" comment="new structure and new package Tank">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="85613aeb-b8a8-437c-81e3-bf60a8c3b782" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/out/production/Normal Tanks/Bullet/Bullet.class" afterPath="$PROJECT_DIR$/out/production/Normal Tanks/Bullet/Bullet.class" />
       <change beforePath="$PROJECT_DIR$/out/production/Normal Tanks/Bullet/HeavyBullet.class" afterPath="$PROJECT_DIR$/out/production/Normal Tanks/Bullet/HeavyBullet.class" />
@@ -1389,11 +1388,18 @@
       <option name="project" value="LOCAL" />
       <updated>1531044201412</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="new structure and new package Tank">
+      <created>1531236854044</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1531236854044</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83711000" />
+    <option name="totallyTimeSpent" value="83725000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1492,7 +1498,8 @@
     <MESSAGE value="test" />
     <MESSAGE value="added tank icon" />
     <MESSAGE value="gun and bullet rotation handled" />
-    <option name="LAST_COMMIT_MESSAGE" value="gun and bullet rotation handled" />
+    <MESSAGE value="new structure and new package Tank" />
+    <option name="LAST_COMMIT_MESSAGE" value="new structure and new package Tank" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
