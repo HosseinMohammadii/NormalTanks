@@ -22,6 +22,7 @@ public class Main {
 			public void run() {
 				GameFrame frame = new GameFrame("Simple Ball !");
 				frame.setLocationRelativeTo(null); // put frame at center of screen
+				frame.setLocation(0,0);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				frame.setVisible(true);
 				frame.initBufferStrategy();

@@ -1,5 +1,6 @@
 /*** In The Name of Allah ***/
 //yessssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferStrategy;
@@ -7,24 +8,26 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.plaf.basic.BasicTreeUI;
-
+import Bullet.Bullet;
+import Bullet.HeavyBullet;
 import static javax.swing.plaf.basic.BasicTreeUI.*;
 
 /**
  * The window on which the rendering is performed.
- * This example uses the modern BufferStrategy approach for double-buffering, 
+ * This example uses the modern BufferStrategy approach for double-buffering,
  * actually it performs triple-buffering!
  * For more information on BufferStrategy check out:
  *    http://docs.oracle.com/javase/tutorial/extra/fullscreen/bufferstrategy.html
  *    http://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferStrategy.html
- * 
+ *
  * @author Seyed Mohammad Ghaffarian
  */
 public class GameFrame extends JFrame{
-	
+
 	public static final int GAME_HEIGHT = 730;                  // 720p game resolution
 	public static final int GAME_WIDTH = 16 * GAME_HEIGHT / 9;  // wide aspect ratio
 
@@ -37,19 +40,25 @@ public class GameFrame extends JFrame{
 	private double a= 0;
 	private double b= 0;
 	private double c= 0;
+	private double cc=0;
 	private int aa;
 	private int bb;
 	private int aaa,bbb;
 	private int aaaa , bbbb;
-	private boolean tirAlive;
+	int hh,jj,kk,ll;
+	private boolean tirAlive=false;
 	private int tirX;
 	private int tirY;
+	private ArrayList<Bullet> bs=new ArrayList<>();
+	int d;
+	Bullet bn;
+	String Test=".";
 
 	private long lastRender;
 	private ArrayList<Float> fpsHistory;
 
 	private BufferStrategy bufferStrategy;
-	
+
 	public GameFrame(String title) {
 		super(title);
 		setResizable(false);
@@ -58,7 +67,7 @@ public class GameFrame extends JFrame{
 		fpsHistory = new ArrayList<>(100);
 
 		try{
-			tankImage = ImageIO.read(new File("Resources\\Images\\tank.png"));
+			tankImage = ImageIO.read(new File("Resources\\Images\\SmallEnemyBody.png"));
 			tankGunToopL1Image = ImageIO.read(new File("Resources\\Images\\tankGun01.png"));
 			tankGunToopL2Image = ImageIO.read(new File("Resources\\Images\\tankGun1.png"));
 			tankGunTirL1Image = ImageIO.read(new File("Resources\\Images\\tankGun2.png"));
@@ -68,7 +77,7 @@ public class GameFrame extends JFrame{
 			System.out.println(e);
 		}
 	}
-	
+
 	/**
 	 * This must be called once after the JFrame is shown:
 	 *    frame.setVisible(true);
@@ -80,7 +89,7 @@ public class GameFrame extends JFrame{
 		bufferStrategy = getBufferStrategy();
 	}
 
-	
+
 	/**
 	 * Game rendering with triple-buffering using BufferStrategy.
 	 */
@@ -111,7 +120,7 @@ public class GameFrame extends JFrame{
 		// Repeat the rendering if the drawing buffer was lost
 		} while (bufferStrategy.contentsLost());
 	}
-	
+
 	/**
 	 * Rendering all game elements based on the game state.
 	 */
@@ -123,8 +132,8 @@ public class GameFrame extends JFrame{
 
 		AffineTransform backup1 = g2d.getTransform();
 		AffineTransform trans1 = new AffineTransform();
-		aaa=(int) (state.locX+50*Math.sqrt(2)*Math.cos(state.teta+Math.PI*5/4));
-		bbb=(int) (state.locY+50*Math.sqrt(2)*Math.sin(state.teta+Math.PI*5/4));
+		aaa=(int) (state.locX+47*Math.sqrt(2)*Math.cos((state.dgree+225)*Math.PI/180));
+		bbb=(int) (state.locY+47*Math.sqrt(2)*Math.sin((state.dgree+225)*Math.PI/180));
 		trans1.rotate( state.teta, aaa, bbb ); // the points to rotate around (the center in my example, your left side for your problem)
 
 		g2d.transform( trans1 );
@@ -133,47 +142,98 @@ public class GameFrame extends JFrame{
 		g2d.setTransform( backup1 ); // restore previous transform
 
 
+
+
+
 		double mouseX = MouseInfo.getPointerInfo().getLocation().getX();
 		double mouseY = MouseInfo.getPointerInfo().getLocation().getY();
 		a=Math.atan((state.locY-mouseY)/(state.locX-mouseX));
 		if(mouseX<state.locX)
 			a+=Math.PI;
-
 		aa= (int) (state.locX+33*Math.sqrt(2)*Math.cos(a+Math.PI*5/4));
 		bb= (int) (state.locY+33*Math.sqrt(2)*Math.sin(a+Math.PI*5/4));
-
-
 
 		AffineTransform backup = g2d.getTransform();
 		AffineTransform trans = new AffineTransform();
 		trans.rotate( a, aa, bb ); // the points to rotate around (the center in my example, your left side for your problem)
 		g2d.transform( trans );
-		g2d.drawImage( tankGunToopL1Image, aa, bb,null );  // the actual location of the sprite
+		g2d.drawImage( tankGunTirL1Image, aa, bb,null );  // the actual location of the sprite
 		g2d.setTransform( backup ); // restore previous transform
 
 
-		if (state.mousePress){
-			c=Math.atan((state.locY-mouseY)/(state.locX-mouseX));
-			if(mouseX<state.locX)
-				c+=Math.PI;
-			tirX= (int) (state.locX+Math.cos(c)*60);
-			tirY= (int) (state.locY+Math.sin(c)*60);
+		if (state.isMouseClick()){
+			bs.add(new HeavyBullet(state.locX,state.locY,state.getMouseX(),state.getMouseY()));
+			//bs.remove(bs.size()-1);
+			System.out.println("new bullet added"+bs.size());
+			hh=state.locX;
+			jj=state.locY;
+			kk=state.getMouseX();
+			ll=state.getMouseY();
 			tirAlive=true;
-
+			//System.out.println(bn.getAngleDeg());
 		}
 
-		if(tirAlive){
-			tirX += 13*Math.cos(c);
-			tirY += 13*Math.sin(c);
-			aaaa=(int) (tirX+11*Math.sqrt(2)*Math.cos(c+Math.PI*5/4));
-			bbbb=(int) (tirY+11*Math.sqrt(2)*Math.sin(c+Math.PI*5/4));
-			AffineTransform backup2 = g2d.getTransform();
-			AffineTransform trans2 = new AffineTransform();
-			trans2.rotate( c, aaaa, bbbb ); // the points to rotate around (the center in my example, your left side for your problem)
-			g2d.transform( trans2 );
-			g2d.drawImage( bullet, aaaa, bbbb,null );  // the actual location of the sprite
-			g2d.setTransform( backup2 ); // restore previous transform
+		if(tirAlive) {
+			//Iterator<Bullet> bss=new Iterator<>();
+			 for(Bullet bn : bs) {
+//				if(!bn.isUsable()){
+//					bs.remove(bn);
+//					continue first;
+//				}
+				AffineTransform backup2 = g2d.getTransform();
+				AffineTransform trans2 = new AffineTransform();
+				trans2.rotate(bn.getAngleRad(), bn.getToShowX(), bn.getToShowY()); // the points to rotate around (the center in my example, your left side for your problem)
+				g2d.transform(trans2);
+				g2d.drawImage(bullet, bn.getToShowX(), bn.getToShowY(), null);  // the actual location of the sprite
+				g2d.setTransform(backup2);// restore previous transform
+				bn.updateLoc();
+				g2d.setColor(Color.CYAN);
+				g2d.setFont(g2d.getFont().deriveFont(100.0f));
+				g2d.drawString(Test, hh, jj);
+				g2d.setFont(g2d.getFont().deriveFont(100.0f));
+				g2d.drawString(Test, kk, ll);
+				g2d.setFont(g2d.getFont().deriveFont(100.0f));
+				g2d.drawString(Test, aaa, bbb);
+				//System.out.println(hh+"   "+jj);
+				//System.out.println(kk+"   "+ll);
+			}
 		}
+
+//		if (state.isMouseClick()){
+//			c=Math.atan((state.locY-mouseY)/(state.locX-mouseX));
+//			cc=180*c/Math.PI;
+//			hh=state.locX;
+//			jj=state.locY;
+//			kk=(int)mouseX;
+//			ll=(int)mouseY;
+//			if(mouseX<state.locX)
+//				cc+=180;
+//			d=60;
+//			tirAlive=true;
+//
+//		}
+//
+//		if(tirAlive){
+//
+//			tirX = (int) (state.locX+d*Math.cos(cc*Math.PI/180));
+//			tirY = (int) (state.locY+d*Math.sin(cc*Math.PI/180));
+//			aaaa=(int) (tirX+11*Math.sqrt(2)*Math.cos((cc+225)*Math.PI/180));
+//			bbbb=(int) (tirY+11*Math.sqrt(2)*Math.sin((cc+225)*Math.PI/180));
+//			AffineTransform backup2 = g2d.getTransform();
+//			AffineTransform trans2 = new AffineTransform();
+//			trans2.rotate( cc*Math.PI/180, aaaa, bbbb ); // the points to rotate around (the center in my example, your left side for your problem)
+//			g2d.transform( trans2 );
+//			g2d.drawImage( bullet, aaaa, bbbb,null );  // the actual location of the sprite
+//			g2d.setTransform( backup2 ); // restore previous transform
+//			d+=13;
+//			g2d.setColor(Color.CYAN);
+//			g2d.setFont(g2d.getFont().deriveFont(100.0f));
+//			g2d.drawString(Test, hh, jj);
+//			g2d.setFont(g2d.getFont().deriveFont(100.0f));
+//			g2d.drawString(Test, kk, ll);
+//			System.out.println(hh+"   "+jj);
+//			System.out.println(kk+"   "+ll);
+//		}
 		g2d.setRenderingHint(
 				RenderingHints.KEY_RENDERING,
 				RenderingHints.VALUE_RENDER_QUALITY);
