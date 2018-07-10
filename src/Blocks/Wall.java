@@ -1,4 +1,4 @@
-package blocks;
+package Blocks;
 
 abstract public class Wall {
     protected int x;

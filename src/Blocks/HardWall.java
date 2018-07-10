@@ -1,4 +1,4 @@
-package blocks;
+package Blocks;
 
 public class HardWall extends Wall {
     public HardWall (int x, int y) {
