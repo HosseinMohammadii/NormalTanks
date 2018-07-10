@@ -19,7 +19,7 @@ import Tank.Tank;
  * @author Seyed Mohammad Ghaffarian
  */
 public class GameState {
-//
+
 	private boolean mouseRelease;
 	public static int locX, locY, diam;
 	public static int frameStartX;
