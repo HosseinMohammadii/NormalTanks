@@ -3,9 +3,7 @@
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 
-import LogicGraphic.GameFrame;
-import LogicGraphic.GameLoop;
-import LogicGraphic.ThreadPool;
+import LogicGraphic.*;
 
 /**
  * Program start.

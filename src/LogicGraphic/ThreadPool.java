@@ -9,7 +9,7 @@ import java.util.concurrent.Executors;
  * @author Seyed Mohammad Ghaffarian
  */
 public class ThreadPool {
-	
+	//
 	private static ExecutorService executor;
 	
 	/**
