@@ -1,26 +1,28 @@
 package walls;
 
 public class SoftWall {
-    private int locLeft;
-    private int locUp;
+    private int x;
+    private int y;
+    private int toShowX;
+    private int toShowY;
 
     private int health;
 
     public SoftWall (int locLeft, int locUp, int health) {
-        this.locLeft = locLeft;
-        this.locUp = locUp;
+        this.x = locLeft;
+        this.y = locUp;
         this.health = health;
     }
     public void heathReducing(int health){
         health--;
     }
 
-    public int getLocLeft () {
-        return locLeft;
+    public int getx () {
+        return x;
     }
 
-    public int getLocUp () {
-        return locUp;
+    public int gety () {
+        return y;
     }
 
     public int getHealth () {
