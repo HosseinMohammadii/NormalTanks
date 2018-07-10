@@ -30,6 +30,7 @@ public class Tank {
         angleDeg = 0;
         radiusOfImage=50;
         rotateSpeedDegree=4.5;
+        //kjk
     }
     public void update(){
         updateAngle();

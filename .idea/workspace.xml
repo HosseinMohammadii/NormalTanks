@@ -1,35 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="85613aeb-b8a8-437c-81e3-bf60a8c3b782" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Resources/Images/Enemy2Bullet2.png" />
+    <list default="true" id="85613aeb-b8a8-437c-81e3-bf60a8c3b782" name="Default" comment="new structure and new package Tank">
       <change beforePath="" afterPath="$PROJECT_DIR$/Resources/Sounds/Banifatemeh-Shab2Moharram1396[04].mp3" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/Normal Tanks/Bullet/HeavyBullet2.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/Normal Tanks/Bullet/LightBullet.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/Normal Tanks/Tank/Tank.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/LogicGraphic/GameLoop.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/LogicGraphic/GameState.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/LogicGraphic/ThreadPool.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Tank/EnemyTank.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/Normal Tanks/Bullet/Bullet.class" afterPath="$PROJECT_DIR$/out/production/Normal Tanks/Bullet/Bullet.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Normal Tanks/Bullet/HeavyBullet.class" afterPath="$PROJECT_DIR$/out/production/Normal Tanks/Bullet/HeavyBullet.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Normal Tanks/GameFrame.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Normal Tanks/GameLoop.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Normal Tanks/GameState$KeyHandler.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Normal Tanks/GameState$MouseHandler.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Normal Tanks/GameState.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/Normal Tanks/Main$1.class" afterPath="$PROJECT_DIR$/out/production/Normal Tanks/Main$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Normal Tanks/Main.class" afterPath="$PROJECT_DIR$/out/production/Normal Tanks/Main.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Normal Tanks/ThreadPool.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Bullet/Bullet.java" afterPath="$PROJECT_DIR$/src/Bullet/Bullet.java" />
-      <change beforePath="$PROJECT_DIR$/src/GameFrame.java" afterPath="$PROJECT_DIR$/src/LogicGraphic/GameFrame.java" />
-      <change beforePath="$PROJECT_DIR$/src/GraphicLogic/GameLoop.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/GraphicLogic/GameState.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/GraphicLogic/ThreadPool.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
+      <change beforePath="$PROJECT_DIR$/src/GameLoop.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/GameState.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/LogicGraphic/GameFrame.java" afterPath="$PROJECT_DIR$/src/LogicGraphic/GameFrame.java" />
+      <change beforePath="$PROJECT_DIR$/src/LogicGraphic/GameState.java" afterPath="$PROJECT_DIR$/src/LogicGraphic/GameState.java" />
+      <change beforePath="$PROJECT_DIR$/src/Tank/EnemyTank.java" afterPath="$PROJECT_DIR$/src/Tank/EnemyTank.java" />
       <change beforePath="$PROJECT_DIR$/src/Tank/Tank.java" afterPath="$PROJECT_DIR$/src/Tank/Tank.java" />
+      <change beforePath="$PROJECT_DIR$/src/ThreadPool.java" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,22 +22,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Tank.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Tank.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Tank/Tank.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2533">
-              <caret line="12" column="56" lean-forward="false" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
+            <state relative-caret-position="204">
+              <caret line="32" column="13" lean-forward="false" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
               <folding>
-                <element signature="e#5544#5545#0" expanded="true" />
-                <element signature="e#5583#5584#0" expanded="true" />
-                <element signature="e#5615#5616#0" expanded="true" />
-                <element signature="e#5645#5646#0" expanded="true" />
-                <element signature="e#5676#5677#0" expanded="true" />
-                <element signature="e#5706#5707#0" expanded="true" />
-                <element signature="e#5734#5735#0" expanded="true" />
-                <element signature="e#5758#5759#0" expanded="true" />
-                <element signature="e#5786#5787#0" expanded="true" />
-                <element signature="e#5810#5811#0" expanded="true" />
+                <element signature="e#5558#5559#0" expanded="true" />
+                <element signature="e#5597#5598#0" expanded="true" />
+                <element signature="e#5629#5630#0" expanded="true" />
+                <element signature="e#5659#5660#0" expanded="true" />
+                <element signature="e#5690#5691#0" expanded="true" />
+                <element signature="e#5720#5721#0" expanded="true" />
+                <element signature="e#5748#5749#0" expanded="true" />
+                <element signature="e#5772#5773#0" expanded="true" />
+                <element signature="e#5800#5801#0" expanded="true" />
+                <element signature="e#5824#5825#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -65,21 +46,9 @@
       <file leaf-file-name="GameFrame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/LogicGraphic/GameFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-570">
-              <caret line="165" column="37" lean-forward="true" selection-start-line="165" selection-start-column="37" selection-end-line="165" selection-end-column="37" />
+            <state relative-caret-position="229">
+              <caret line="212" column="12" lean-forward="false" selection-start-line="212" selection-start-column="12" selection-end-line="212" selection-end-column="12" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameFrame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Desktop/NT/1/Normal Tanks/src/GameFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2805">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#9461#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -87,8 +56,8 @@
       <file leaf-file-name="EnemyTank.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Tank/EnemyTank.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="34" column="5" lean-forward="false" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+            <state relative-caret-position="171">
+              <caret line="150" column="5" lean-forward="true" selection-start-line="150" selection-start-column="5" selection-end-line="150" selection-end-column="5" />
               <folding>
                 <element signature="method#update#0;class#EnemyTank#0" expanded="false" />
                 <element signature="method#updateAngle#0;class#EnemyTank#0" expanded="false" />
@@ -99,11 +68,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameState.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GameState.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/LogicGraphic/GameState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+            <state relative-caret-position="204">
+              <caret line="21" column="2" lean-forward="false" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -200,9 +169,9 @@
         <option value="$PROJECT_DIR$/src/LogicGraphic/ThreadPool.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/Bullet/Bullet.java" />
-        <option value="$PROJECT_DIR$/src/Tank/EnemyTank.java" />
         <option value="$PROJECT_DIR$/src/GameFrame.java" />
         <option value="$PROJECT_DIR$/src/Tank/Tank.java" />
+        <option value="$PROJECT_DIR$/src/Tank/EnemyTank.java" />
         <option value="$PROJECT_DIR$/src/LogicGraphic/GameFrame.java" />
         <option value="$PROJECT_DIR$/src/LogicGraphic/GameState.java" />
       </list>
@@ -255,6 +224,18 @@
               <item name="Normal Tanks" type="b2602c69:ProjectViewProjectNode" />
               <item name="Normal Tanks" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Normal Tanks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Normal Tanks" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="LogicGraphic" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Normal Tanks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Normal Tanks" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Tank" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -424,7 +405,7 @@
       <updated>1530778544365</updated>
       <workItem from="1530778551382" duration="3473000" />
       <workItem from="1530796256579" duration="95818000" />
-      <workItem from="1531177710875" duration="2120000" />
+      <workItem from="1531177710875" duration="3385000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1530798547594</created>
@@ -461,14 +442,22 @@
       <option name="project" value="LOCAL" />
       <updated>1531134156910</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="new structure and new package Tank">
+      <created>1531227258947</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1531227258948</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101411000" />
+    <option name="totallyTimeSpent" value="102676000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -483,7 +472,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.4941435" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14787701" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14787701" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -510,7 +499,8 @@
     <MESSAGE value="added tank icon" />
     <MESSAGE value="gun and bullet rotation handled" />
     <MESSAGE value="Bullet Package defined" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bullet Package defined" />
+    <MESSAGE value="new structure and new package Tank" />
+    <option name="LAST_COMMIT_MESSAGE" value="new structure and new package Tank" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -522,16 +512,16 @@
         <state relative-caret-position="204">
           <caret line="12" column="56" lean-forward="false" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
           <folding>
-            <element signature="e#5544#5545#0" expanded="true" />
-            <element signature="e#5583#5584#0" expanded="true" />
-            <element signature="e#5615#5616#0" expanded="true" />
-            <element signature="e#5645#5646#0" expanded="true" />
-            <element signature="e#5676#5677#0" expanded="true" />
-            <element signature="e#5706#5707#0" expanded="true" />
-            <element signature="e#5734#5735#0" expanded="true" />
-            <element signature="e#5758#5759#0" expanded="true" />
-            <element signature="e#5786#5787#0" expanded="true" />
-            <element signature="e#5810#5811#0" expanded="true" />
+            <element signature="e#5558#5559#0" expanded="true" />
+            <element signature="e#5597#5598#0" expanded="true" />
+            <element signature="e#5629#5630#0" expanded="true" />
+            <element signature="e#5659#5660#0" expanded="true" />
+            <element signature="e#5690#5691#0" expanded="true" />
+            <element signature="e#5720#5721#0" expanded="true" />
+            <element signature="e#5748#5749#0" expanded="true" />
+            <element signature="e#5772#5773#0" expanded="true" />
+            <element signature="e#5800#5801#0" expanded="true" />
+            <element signature="e#5824#5825#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -887,14 +877,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/LogicGraphic/GameLoop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="41" column="5" lean-forward="false" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/NT/1/Normal Tanks/src/GameFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2805">
@@ -902,14 +884,6 @@
           <folding>
             <element signature="e#0#9461#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LogicGraphic/GameFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-570">
-          <caret line="165" column="37" lean-forward="true" selection-start-line="165" selection-start-column="37" selection-end-line="165" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -921,18 +895,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/LogicGraphic/GameState.java">
+    <entry file="file://$PROJECT_DIR$/src/Tank/Tank.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
-          <folding />
+        <state relative-caret-position="204">
+          <caret line="32" column="13" lean-forward="false" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+          <folding>
+            <element signature="e#5558#5559#0" expanded="true" />
+            <element signature="e#5597#5598#0" expanded="true" />
+            <element signature="e#5629#5630#0" expanded="true" />
+            <element signature="e#5659#5660#0" expanded="true" />
+            <element signature="e#5690#5691#0" expanded="true" />
+            <element signature="e#5720#5721#0" expanded="true" />
+            <element signature="e#5748#5749#0" expanded="true" />
+            <element signature="e#5772#5773#0" expanded="true" />
+            <element signature="e#5800#5801#0" expanded="true" />
+            <element signature="e#5824#5825#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Tank/EnemyTank.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="34" column="5" lean-forward="false" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+        <state relative-caret-position="171">
+          <caret line="150" column="5" lean-forward="true" selection-start-line="150" selection-start-column="5" selection-end-line="150" selection-end-column="5" />
           <folding>
             <element signature="method#update#0;class#EnemyTank#0" expanded="false" />
             <element signature="method#updateAngle#0;class#EnemyTank#0" expanded="false" />
@@ -942,22 +927,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tank/Tank.java">
+    <entry file="file://$PROJECT_DIR$/src/LogicGraphic/GameFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2533">
-          <caret line="12" column="56" lean-forward="false" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
-          <folding>
-            <element signature="e#5544#5545#0" expanded="true" />
-            <element signature="e#5583#5584#0" expanded="true" />
-            <element signature="e#5615#5616#0" expanded="true" />
-            <element signature="e#5645#5646#0" expanded="true" />
-            <element signature="e#5676#5677#0" expanded="true" />
-            <element signature="e#5706#5707#0" expanded="true" />
-            <element signature="e#5734#5735#0" expanded="true" />
-            <element signature="e#5758#5759#0" expanded="true" />
-            <element signature="e#5786#5787#0" expanded="true" />
-            <element signature="e#5810#5811#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="229">
+          <caret line="212" column="12" lean-forward="false" selection-start-line="212" selection-start-column="12" selection-end-line="212" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LogicGraphic/GameLoop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="41" column="5" lean-forward="false" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LogicGraphic/GameState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="21" column="2" lean-forward="false" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
