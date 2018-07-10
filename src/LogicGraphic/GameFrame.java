@@ -1,6 +1,6 @@
 /*** In The Name of Allah ***/
 //yessssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
-
+package LogicGraphic;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferStrategy;
@@ -14,6 +14,8 @@ import javax.swing.JFrame;
 import javax.swing.plaf.basic.BasicTreeUI;
 import Bullet.Bullet;
 import Bullet.HeavyBullet;
+import Tank.Tank;
+
 import static javax.swing.plaf.basic.BasicTreeUI.*;
 
 /**
@@ -51,6 +53,7 @@ public class GameFrame extends JFrame{
 	private int tirY;
 	private ArrayList<Bullet> bs=new ArrayList<>();
 	int d;
+
 	Bullet bn;
 	String Test=".";
 
@@ -67,7 +70,7 @@ public class GameFrame extends JFrame{
 		fpsHistory = new ArrayList<>(100);
 
 		try{
-			tankImage = ImageIO.read(new File("Resources\\Images\\SmallEnemyBody.png"));
+			tankImage = ImageIO.read(new File("Resources\\Images\\tank.png"));
 			tankGunToopL1Image = ImageIO.read(new File("Resources\\Images\\tankGun01.png"));
 			tankGunToopL2Image = ImageIO.read(new File("Resources\\Images\\tankGun1.png"));
 			tankGunTirL1Image = ImageIO.read(new File("Resources\\Images\\tankGun2.png"));
@@ -132,13 +135,9 @@ public class GameFrame extends JFrame{
 
 		AffineTransform backup1 = g2d.getTransform();
 		AffineTransform trans1 = new AffineTransform();
-		aaa=(int) (state.locX+47*Math.sqrt(2)*Math.cos((state.dgree+225)*Math.PI/180));
-		bbb=(int) (state.locY+47*Math.sqrt(2)*Math.sin((state.dgree+225)*Math.PI/180));
-		trans1.rotate( state.teta, aaa, bbb ); // the points to rotate around (the center in my example, your left side for your problem)
-
+		trans1.rotate( state.tank.getAngleRad(), state.tank.getToShowX(), state.tank.getToShowY() ); // the points to rotate around (the center in my example, your left side for your problem)
 		g2d.transform( trans1 );
-		g2d.drawImage( tankImage, aaa, bbb,null );  // the actual location of the sprite
-
+		g2d.drawImage( tankImage, state.tank.getToShowX(), state.tank.getToShowY(),null );  // the actual location of the sprite
 		g2d.setTransform( backup1 ); // restore previous transform
 
 
@@ -147,26 +146,27 @@ public class GameFrame extends JFrame{
 
 		double mouseX = MouseInfo.getPointerInfo().getLocation().getX();
 		double mouseY = MouseInfo.getPointerInfo().getLocation().getY();
-		a=Math.atan((state.locY-mouseY)/(state.locX-mouseX));
-		if(mouseX<state.locX)
+
+		a=Math.atan((state.tank.getY()-mouseY)/(state.tank.getX()-mouseX));
+		if(mouseX<state.tank.getX())
 			a+=Math.PI;
-		aa= (int) (state.locX+33*Math.sqrt(2)*Math.cos(a+Math.PI*5/4));
-		bb= (int) (state.locY+33*Math.sqrt(2)*Math.sin(a+Math.PI*5/4));
+		aa= (int) (state.tank.getX()+33*Math.sqrt(2)*Math.cos(a+Math.PI*5/4));
+		bb= (int) (state.tank.getY()+33*Math.sqrt(2)*Math.sin(a+Math.PI*5/4));
 
 		AffineTransform backup = g2d.getTransform();
 		AffineTransform trans = new AffineTransform();
 		trans.rotate( a, aa, bb ); // the points to rotate around (the center in my example, your left side for your problem)
 		g2d.transform( trans );
-		g2d.drawImage( tankGunTirL1Image, aa, bb,null );  // the actual location of the sprite
+		g2d.drawImage( tankGunToopL1Image, aa, bb,null );  // the actual location of the sprite
 		g2d.setTransform( backup ); // restore previous transform
 
 
 		if (state.isMouseClick()){
-			bs.add(new HeavyBullet(state.locX,state.locY,state.getMouseX(),state.getMouseY()));
+			bs.add(new HeavyBullet((int)GameState.tank.getX(),(int)GameState.tank.getY(),state.getMouseX(),state.getMouseY()));
 			//bs.remove(bs.size()-1);
 			System.out.println("new bullet added"+bs.size());
-			hh=state.locX;
-			jj=state.locY;
+			hh=(int)state.tank.getX();
+			jj=(int)state.tank.getY();
 			kk=state.getMouseX();
 			ll=state.getMouseY();
 			tirAlive=true;

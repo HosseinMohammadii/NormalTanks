@@ -1,8 +1,7 @@
 package Tank;
 import LogicGraphic.*;
+public class EnemyTank {
 
-
-public class Tank {
     protected double x;
     protected double y;
     protected int toShowX;
@@ -11,8 +10,8 @@ public class Tank {
     protected double angleRad;
     protected static final double p=Math.PI;
     protected static final double RADICAL2=Math.sqrt(2);
+    protected double changeAngleAmount;
     protected double rotateSpeedDegree;
-    protected double rotateSpeedRadius;
     protected double radiusOfImage;
     protected int speed;
     protected int prsentGun;
@@ -21,16 +20,10 @@ public class Tank {
     protected int LightGunRemain;
     protected int HeavyGunLevel;
     protected int LightGunLevel;
+    private double rotateSpeedRadius;
 
-    public Tank (int startX,int startY){
-        x=startX;
-        y=startY;
-        speed = 6;
-        rotateSpeedRadius=speed/4;
-        angleDeg = 0;
-        radiusOfImage=50;
-        rotateSpeedDegree=4.5;
-    }
+
+
     public void update(){
         updateAngle();
         x = Math.max(x, 0);
@@ -174,20 +167,4 @@ public class Tank {
         return (angleDeg*p)/180;
     }
 
-
-    public int getToShowX() {
-        return toShowX;
-    }
-
-    public int getToShowY() {
-        return toShowY;
-    }
-
-    public double getX() {
-        return x;
-    }
-
-    public double getY() {
-        return y;
-    }
 }

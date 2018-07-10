@@ -1,5 +1,5 @@
 package Bullet;
-
+import LogicGraphic.*;
 public class Bullet {
     protected int speed;
     protected int x;
@@ -15,7 +15,7 @@ public class Bullet {
     protected int toShowY;
     protected int toCenterX;
     protected int toCenterY;
-    protected int radiusOfImage;
+    protected double radiusOfImage;
 
 
 
@@ -25,7 +25,7 @@ public class Bullet {
         this.sourceY=sourceY;
         calAngle(clickedX,clickedY);
         radius=72;
-        radiusOfImage=11;
+        radiusOfImage=11*Math.sqrt(2);
 
         toCenter();
         speed=6;
@@ -42,8 +42,8 @@ public class Bullet {
 
     private void toCenter(){
         //+Math.PI*5/4
-      toCenterX=  (int) (radiusOfImage*Math.sqrt(2)*Math.cos((angleDeg+225)*Math.PI/180));
-      toCenterY=  (int) (radiusOfImage*Math.sqrt(2)*Math.sin((angleDeg+225)*Math.PI/180));
+      toCenterX=  (int) (radiusOfImage*Math.cos((angleDeg+225)*Math.PI/180));
+      toCenterY=  (int) (radiusOfImage*Math.sin((angleDeg+225)*Math.PI/180));
     }
 
     public void updateLoc(){
@@ -164,7 +164,7 @@ public class Bullet {
         this.toCenterY = toCenterY;
     }
 
-    public int getRadiusOfImage() {
+    public double getRadiusOfImage() {
         return radiusOfImage;
     }
 
