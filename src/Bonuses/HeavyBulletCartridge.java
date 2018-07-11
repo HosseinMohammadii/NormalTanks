@@ -1,17 +1,8 @@
 package Bonuses;
 
-public class HeavyBulletCartridge {
-    private int x;
-    private int y;
-
-    private int toShowX;
-    private int toShowY;
-
-    private boolean exist;
+public class HeavyBulletCartridge extends Bonus {
 
     public HeavyBulletCartridge (int x, int y) {
-        this.x = x;
-        this.y = y;
-        exist = true;
+        super( x, y );
     }
 }

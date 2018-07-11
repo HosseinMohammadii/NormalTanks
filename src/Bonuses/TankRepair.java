@@ -1,4 +1,9 @@
-package bonuses;
+package Bonuses;
 
-public class TankRepair {
+public class TankRepair extends Bonus{
+
+
+    public TankRepair (int x, int y) {
+        super( x, y );
+    }
 }
