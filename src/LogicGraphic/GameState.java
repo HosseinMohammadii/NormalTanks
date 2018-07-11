@@ -37,6 +37,12 @@ public class GameState {
 	public static Tank tank=new Tank(100,100);
 	public static double mouseLiveX;
 	public static double mouseLiveY;
+	public static boolean solo = false;
+	public static boolean co_op = false;
+
+	public static boolean easy = false;
+	public static boolean normal = false;
+	public static boolean hard = false;
 
 
 	public GameState() {
@@ -74,12 +80,52 @@ public class GameState {
 //			locX = mouseX - diam / 2;
 //		}
 
-
+		mouseLiveX = MouseInfo.getPointerInfo().getLocation().getX();
+		mouseLiveY = MouseInfo.getPointerInfo().getLocation().getY();
 		tank.update();
 
 	}
-	
-	
+
+	public static boolean isSolo() {
+		return solo;
+	}
+
+	public static void setSolo(boolean solo) {
+		GameState.solo = solo;
+	}
+
+	public static boolean isCo_op() {
+		return co_op;
+	}
+
+	public static void setCo_op(boolean co_op) {
+		GameState.co_op = co_op;
+	}
+
+	public static boolean isEasy() {
+		return easy;
+	}
+
+	public static void setEasy(boolean easy) {
+		GameState.easy = easy;
+	}
+
+	public static boolean isNormal() {
+		return normal;
+	}
+
+	public static void setNormal(boolean normal) {
+		GameState.normal = normal;
+	}
+
+	public static boolean isHard() {
+		return hard;
+	}
+
+	public static void setHard(boolean hard) {
+		GameState.hard = hard;
+	}
+
 	public KeyListener getKeyListener() {
 		return keyHandler;
 	}
@@ -196,33 +242,30 @@ public class GameState {
 
 		@Override
 		public void mousePressed(MouseEvent e) {
-			mouseX = e.getX();
-			mouseY = e.getY();
+
 			mousepress = true;
-			mouseClick=true;
 
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
 			mousepress = false;
-			mouseClick = false;
 			mouseRelease = true;
+			mouseClick=false;
 		}
 
 		@Override
 		public void mouseDragged(MouseEvent e) {
-			mouseX = e.getX();
-			mouseY = e.getY();
 			mousepress=false;
 			mouseClick=false;
 		}
 
-//		@Override
-//		public void mouseClicked(MouseEvent e) {
-//			if(e.getClickCount()==1)
-//				mouseClick=true;
-//		}
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			if(e.getClickCount()==1)
+				mouseClick=true;
+
+		}
 	}
 }
 

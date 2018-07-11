@@ -1,3 +1,5 @@
+import LogicGraphic.GameState;
+
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -7,12 +9,6 @@ import java.awt.event.MouseListener;
 import java.io.File;
 
 public class Menu implements MouseListener {
-    public static boolean solo = false;
-    public static boolean co_op = false;
-
-    public static boolean easy = false;
-    public static boolean normal = false;
-    public static boolean hard = false;
 
     private JFrame startUp1;
     private JLabel SUP1;
@@ -34,9 +30,9 @@ public class Menu implements MouseListener {
     private void initSU1 () {
         startUp1 = new JFrame();
         SUP1 = new JLabel();
-        startImage0 = new ImageIcon( "C:\\Users\\ES\\IdeaProjects\\Normal_Tanks\\Resources\\Images\\Startup0.png" );
-        startImage1 = new ImageIcon( "C:\\Users\\ES\\IdeaProjects\\Normal_Tanks\\Resources\\Images\\Startup1.png" );
-        startImage2 = new ImageIcon( "C:\\Users\\ES\\IdeaProjects\\Normal_Tanks\\Resources\\Images\\Startup2.png" );
+        startImage0 = new ImageIcon( "Resources\\Images\\Startup0.png" );
+        startImage1 = new ImageIcon( "Resources\\Images\\Startup1.png" );
+        startImage2 = new ImageIcon( "Resources\\Images\\Startup2.png" );
         SUP1.setIcon( startImage0 );
 
         startUp1.add( SUP1 );
@@ -67,33 +63,27 @@ public class Menu implements MouseListener {
     public void mouseClicked (MouseEvent e) {
         if (e.getXOnScreen() > 100 && e.getXOnScreen() < 240 && e.getYOnScreen() > 240 && e.getYOnScreen() < 305 && SUP1.getIcon().equals( startImage0 )) {
             SUP1.setIcon( startImage1 );
-            solo = true;
+            GameState.setSolo(true);
 
         }
         else if (e.getXOnScreen() > 100 && e.getXOnScreen() < 240 && e.getYOnScreen() > 315 && e.getYOnScreen() < 360 && SUP1.getIcon().equals( startImage0 )) {
             SUP1.setIcon(startImage1 );
-            co_op = true;
+            GameState.setCo_op(true);
         }
 
         else if (e.getXOnScreen() > 150 && e.getXOnScreen() < 300 && e.getYOnScreen() > 280 && e.getYOnScreen() < 315&& SUP1.getIcon().equals( startImage1 ) ) {
             SUP1.setIcon( startImage2 );
-            easy = true;
+            GameState.setEasy(true);
         }
         else if (e.getXOnScreen() > 150 && e.getXOnScreen() < 300 && e.getYOnScreen() > 315 && e.getYOnScreen() < 360 && SUP1.getIcon().equals( startImage1 )) {
             SUP1.setIcon(startImage2 );
-            normal = true;
+            GameState.setNormal(true);
         }
         else if (e.getXOnScreen() > 150 && e.getXOnScreen() < 300 && e.getYOnScreen() > 360 && e.getYOnScreen() < 400 && SUP1.getIcon().equals( startImage1 )) {
             SUP1.setIcon( startImage2);
-            hard = true;
+            GameState.setHard(true);
         }
-        System.out.println( "solo  " + solo );
-        System.out.println( "co_op  " + co_op );
-        System.out.println( "easy  " + easy );
-        System.out.println( "normal  " + normal );
-        System.out.println( "hard  " + hard );
-        System.out.println( "X  " + e.getXOnScreen() );
-        System.out.println( "Y  " + e.getYOnScreen() );
+
     }
 
 
