@@ -16,17 +16,21 @@ public class Bullet {
     protected int toCenterX;
     protected int toCenterY;
     protected double radiusOfImage;
+    protected long time;
+    protected int type;
 
 
 
-    public Bullet(int sourceX,int sourceY,int clickedX,int clickedY){
+
+
+    public Bullet(int sourceX,int sourceY,int clickedX,int clickedY,long time){
         isUsable=true;
         this.sourceX=sourceX;
         this.sourceY=sourceY;
         calAngle(clickedX,clickedY);
         radius=72;
         radiusOfImage=11*Math.sqrt(2);
-
+        this.time=time;
         toCenter();
         speed=6;
     }
@@ -58,6 +62,11 @@ public class Bullet {
     private void updateUsable(){
         if((x>1296)||(y>730))
             isUsable=false;
+    }
+
+    public int expire(){
+        isUsable=false;
+        return damage;
     }
 
     public int getSpeed() {
@@ -174,5 +183,13 @@ public class Bullet {
 
     public void setRadiusOfImage(int radiusOfImage) {
         this.radiusOfImage = radiusOfImage;
+    }
+
+    public long getTime() {
+        return time;
+    }
+
+    public int getType() {
+        return type;
     }
 }

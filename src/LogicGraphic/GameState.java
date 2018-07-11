@@ -8,8 +8,10 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.util.ArrayList;
 
-import Tank.Tank;
+import Bullet.*;
+import Tank.*;
 
 
 /**
@@ -24,7 +26,7 @@ public class GameState {
 	public static int locX, locY, diam;
 	public static int frameStartX;
 	public static int frameStartY;
-	public boolean gameOver;
+	public static boolean gameOver;
 	public static boolean keyUp, keyDOWN, keyRIGHT, keyLEFT;
 	public static boolean mousepress;
 	private static boolean mouseClick;
@@ -43,6 +45,8 @@ public class GameState {
 	public static boolean easy = false;
 	public static boolean normal = false;
 	public static boolean hard = false;
+	public static ArrayList<Bullet> bullets;
+    ArrayList<Bullet> bulletspointers;
 
 
 	public GameState() {
@@ -52,6 +56,8 @@ public class GameState {
 		frameStartY=0;
 		diam = 0;
 		gameOver = false;
+		bullets=new ArrayList<>();
+        bulletspointers = new ArrayList<>();
 
 		//
 		keyUp = false;
@@ -70,7 +76,8 @@ public class GameState {
 		mouseHandler = new MouseHandler();
 	}
 
-	
+
+
 	/**
 	 * The method which updates the game state.
 	 */
@@ -83,6 +90,50 @@ public class GameState {
 		mouseLiveX = MouseInfo.getPointerInfo().getLocation().getX();
 		mouseLiveY = MouseInfo.getPointerInfo().getLocation().getY();
 		tank.update();
+
+		if (mousepress){
+			if(bullets.size()==0 && tank.getHeavyGunRemain()>0){
+			bullets.add(new HeavyBullet((int)tank.getX(),(int)tank.getY(),(int)mouseLiveX,(int)mouseLiveY,System.currentTimeMillis()));
+			}
+			else {
+				if(tank.getPresentGun()==1 && tank.getHeavyGunRemain()>0 && tank.getHeavyGunLevel()==1){
+					if(System.currentTimeMillis()>=(bullets.get(bullets.size()-1).getTime()+tank.getBulletShootSpeed())) {
+					bullets.add(new HeavyBullet((int) tank.getX(), (int) tank.getY(), (int) mouseLiveX, (int) mouseLiveY, System.currentTimeMillis()));
+					tank.shoot();
+					}
+				}
+				else if(tank.getPresentGun()==1 && tank.getHeavyGunRemain()>0 && tank.getHeavyGunLevel()==2){
+					if(System.currentTimeMillis()>=(bullets.get(bullets.size()-1).getTime()+tank.getBulletShootSpeed())) {
+						bullets.add(new HeavyBullet2((int) tank.getX(), (int) tank.getY(), (int) mouseLiveX, (int) mouseLiveY, System.currentTimeMillis()));
+					    tank.shoot();
+					}
+				}
+				else if(tank.getPresentGun()==2 && tank.getLightGunRemain()>0 && tank.getLightGunLevel()==1){
+					if(System.currentTimeMillis()>=(bullets.get(bullets.size()-1).getTime()+tank.getBulletShootSpeed())) {
+						bullets.add(new LightBullet((int) tank.getX(), (int) tank.getY(), (int) mouseLiveX, (int) mouseLiveY, System.currentTimeMillis()));
+					    tank.shoot();
+					}
+				}
+				else if(tank.getPresentGun()==2 && tank.getLightGunRemain()>0 && tank.getLightGunLevel()==2){
+					if(System.currentTimeMillis()>=(bullets.get(bullets.size()-1).getTime()+tank.getBulletShootSpeed())) {
+						bullets.add(new LightBullet2((int) tank.getX(), (int) tank.getY(), (int) mouseLiveX, (int) mouseLiveY, System.currentTimeMillis()));
+					    tank.shoot();
+					}
+				}
+			}
+		}
+
+		for(Bullet bullet : bullets){
+		    bullet.updateLoc();
+			if(!bullet.isUsable()){
+				bulletspointers.add(bullet);
+		}
+		}
+		for (Bullet pointer : bulletspointers) {
+			bullets.remove(pointer);
+            System.out.println("removed"+bullets.size());
+		}
+		bulletspointers.clear();
 
 	}
 
@@ -185,7 +236,11 @@ public class GameState {
 		return mousepress;
 	}
 
-	/**
+    public static void setGameOver(boolean gameOver) {
+        GameState.gameOver = gameOver;
+    }
+
+    /**
 	 * The keyboard handler.
 	 */
 	class KeyHandler extends KeyAdapter {

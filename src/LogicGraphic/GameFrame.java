@@ -133,6 +133,7 @@ public class GameFrame extends JFrame{
 		g2d.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 		// Draw ball
 
+
 		AffineTransform backup1 = g2d.getTransform();
 		AffineTransform trans1 = new AffineTransform();
 		trans1.rotate( state.tank.getAngleRad(), state.tank.getToShowX(), state.tank.getToShowY() ); // the points to rotate around (the center in my example, your left side for your problem)
@@ -145,7 +146,7 @@ public class GameFrame extends JFrame{
 
 
 
-        System.out.println(GameState.mouseLiveX+"     "+GameState.mouseLiveY);
+
 		a=Math.atan((state.tank.getY()-GameState.mouseLiveY)/(state.tank.getX()-GameState.mouseLiveX));
 		if(GameState.mouseLiveX<state.tank.getX())
 			a+=Math.PI;
@@ -160,43 +161,27 @@ public class GameFrame extends JFrame{
 		g2d.setTransform( backup ); // restore previous transform
 
 
-		if (state.isMouseClick()){
-			bs.add(new HeavyBullet((int)GameState.tank.getX(),(int)GameState.tank.getY(),(int)GameState.mouseLiveX,(int)GameState.mouseLiveY));
-			//bs.remove(bs.size()-1);
-			System.out.println("new bullet added"+bs.size());
-			hh=(int)state.tank.getX();
-			jj=(int)state.tank.getY();
-			kk=state.getMouseX();
-			ll=state.getMouseY();
-			tirAlive=true;
-			//System.out.println(bn.getAngleDeg());
-		}
+        if(GameState.bullets.size()>0) {
 
-		if(tirAlive) {
-			//Iterator<Bullet> bss=new Iterator<>();
-			 for(Bullet bn : bs) {
-//				if(!bn.isUsable()){
-//					bs.remove(bn);
-//					continue first;
-//				}
-				AffineTransform backup2 = g2d.getTransform();
-				AffineTransform trans2 = new AffineTransform();
-				trans2.rotate(bn.getAngleRad(), bn.getToShowX(), bn.getToShowY()); // the points to rotate around (the center in my example, your left side for your problem)
-				g2d.transform(trans2);
-				g2d.drawImage(bullet, bn.getToShowX(), bn.getToShowY(), null);  // the actual location of the sprite
-				g2d.setTransform(backup2);// restore previous transform
-				bn.updateLoc();
-				g2d.setColor(Color.CYAN);
-				g2d.setFont(g2d.getFont().deriveFont(100.0f));
-				g2d.drawString(Test, hh, jj);
-				g2d.setFont(g2d.getFont().deriveFont(100.0f));
-				g2d.drawString(Test, kk, ll);
-				g2d.setFont(g2d.getFont().deriveFont(100.0f));
-				g2d.drawString(Test, aaa, bbb);
-				//System.out.println(hh+"   "+jj);
-				//System.out.println(kk+"   "+ll);
-			}
-		}
+            for (Bullet bn : GameState.bullets) {
+                AffineTransform backup2 = g2d.getTransform();
+                AffineTransform trans2 = new AffineTransform();
+                trans2.rotate(bn.getAngleRad(), bn.getToShowX(), bn.getToShowY()); // the points to rotate around (the center in my example, your left side for your problem)
+                g2d.transform(trans2);
+                g2d.drawImage(bullet, bn.getToShowX(), bn.getToShowY(), null);  // the actual location of the sprite
+                g2d.setTransform(backup2);// restore previous transform
+                g2d.setColor(Color.CYAN);
+                g2d.setFont(g2d.getFont().deriveFont(100.0f));
+                g2d.drawString(Test, hh, jj);
+                g2d.setFont(g2d.getFont().deriveFont(100.0f));
+                g2d.drawString(Test, kk, ll);
+                g2d.setFont(g2d.getFont().deriveFont(100.0f));
+                g2d.drawString(Test, aaa, bbb);
+                //System.out.println(hh+"   "+jj);
+                //System.out.println(kk+"   "+ll);
+            }
+        }
+
 
 
 		g2d.setRenderingHint(
