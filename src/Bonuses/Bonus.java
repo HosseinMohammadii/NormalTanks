@@ -1,5 +1,5 @@
 package Bonuses;
-
+//
 public abstract class Bonus {
     private int x;
     private int y;
