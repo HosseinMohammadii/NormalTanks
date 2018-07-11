@@ -144,11 +144,10 @@ public class GameFrame extends JFrame{
 
 
 
-		double mouseX = MouseInfo.getPointerInfo().getLocation().getX();
-		double mouseY = MouseInfo.getPointerInfo().getLocation().getY();
 
-		a=Math.atan((state.tank.getY()-mouseY)/(state.tank.getX()-mouseX));
-		if(mouseX<state.tank.getX())
+        System.out.println(GameState.mouseLiveX+"     "+GameState.mouseLiveY);
+		a=Math.atan((state.tank.getY()-GameState.mouseLiveY)/(state.tank.getX()-GameState.mouseLiveX));
+		if(GameState.mouseLiveX<state.tank.getX())
 			a+=Math.PI;
 		aa= (int) (state.tank.getX()+33*Math.sqrt(2)*Math.cos(a+Math.PI*5/4));
 		bb= (int) (state.tank.getY()+33*Math.sqrt(2)*Math.sin(a+Math.PI*5/4));
@@ -162,7 +161,7 @@ public class GameFrame extends JFrame{
 
 
 		if (state.isMouseClick()){
-			bs.add(new HeavyBullet((int)GameState.tank.getX(),(int)GameState.tank.getY(),state.getMouseX(),state.getMouseY()));
+			bs.add(new HeavyBullet((int)GameState.tank.getX(),(int)GameState.tank.getY(),(int)GameState.mouseLiveX,(int)GameState.mouseLiveY));
 			//bs.remove(bs.size()-1);
 			System.out.println("new bullet added"+bs.size());
 			hh=(int)state.tank.getX();
@@ -199,42 +198,7 @@ public class GameFrame extends JFrame{
 			}
 		}
 
-//		if (state.isMouseClick()){
-//			c=Math.atan((state.locY-mouseY)/(state.locX-mouseX));
-//			cc=180*c/Math.PI;
-//			hh=state.locX;
-//			jj=state.locY;
-//			kk=(int)mouseX;
-//			ll=(int)mouseY;
-//			if(mouseX<state.locX)
-//				cc+=180;
-//			d=60;
-//			tirAlive=true;
-		//
-//
-//		}
-//
-//		if(tirAlive){
-//
-//			tirX = (int) (state.locX+d*Math.cos(cc*Math.PI/180));
-//			tirY = (int) (state.locY+d*Math.sin(cc*Math.PI/180));
-//			aaaa=(int) (tirX+11*Math.sqrt(2)*Math.cos((cc+225)*Math.PI/180));
-//			bbbb=(int) (tirY+11*Math.sqrt(2)*Math.sin((cc+225)*Math.PI/180));
-//			AffineTransform backup2 = g2d.getTransform();
-//			AffineTransform trans2 = new AffineTransform();
-//			trans2.rotate( cc*Math.PI/180, aaaa, bbbb ); // the points to rotate around (the center in my example, your left side for your problem)
-//			g2d.transform( trans2 );
-//			g2d.drawImage( bullet, aaaa, bbbb,null );  // the actual location of the sprite
-//			g2d.setTransform( backup2 ); // restore previous transform
-//			d+=13;
-//			g2d.setColor(Color.CYAN);
-//			g2d.setFont(g2d.getFont().deriveFont(100.0f));
-//			g2d.drawString(Test, hh, jj);
-//			g2d.setFont(g2d.getFont().deriveFont(100.0f));
-//			g2d.drawString(Test, kk, ll);
-//			System.out.println(hh+"   "+jj);
-//			System.out.println(kk+"   "+ll);
-//		}
+
 		g2d.setRenderingHint(
 				RenderingHints.KEY_RENDERING,
 				RenderingHints.VALUE_RENDER_QUALITY);
