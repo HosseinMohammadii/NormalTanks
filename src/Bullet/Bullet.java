@@ -23,14 +23,13 @@ public class Bullet {
 
 
 
-    public Bullet(int sourceX,int sourceY,int clickedX,int clickedY,long time){
+    public Bullet(int sourceX,int sourceY,int clickedX,int clickedY){
         isUsable=true;
         this.sourceX=sourceX;
         this.sourceY=sourceY;
         calAngle(clickedX,clickedY);
         radius=72;
         radiusOfImage=11*Math.sqrt(2);
-        this.time=time;
         toCenter();
         speed=6;
     }
@@ -51,8 +50,8 @@ public class Bullet {
     }
 
     public void updateLoc(){
-        x = (int) (this.sourceX+radius*Math.cos(angleDeg*Math.PI/180));
-        y = (int) (this.sourceY+radius*Math.sin(angleDeg*Math.PI/180));
+        x = (int) (this.sourceX-GameState.frameStartX+radius*Math.cos(angleDeg*Math.PI/180));
+        y = (int) (this.sourceY-GameState.frameStartX+radius*Math.sin(angleDeg*Math.PI/180));
         toShowX=x+toCenterX;
         toShowY=y+toCenterY;
         radius+=speed;

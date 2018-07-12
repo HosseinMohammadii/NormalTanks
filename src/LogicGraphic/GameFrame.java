@@ -8,15 +8,10 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
-import javax.swing.plaf.basic.BasicTreeUI;
-import Bullet.Bullet;
-import Bullet.HeavyBullet;
-import Tank.Tank;
 
-import static javax.swing.plaf.basic.BasicTreeUI.*;
+import Bullet.*;
 
 /**
  * The window on which the rendering is performed.
@@ -38,7 +33,10 @@ public class GameFrame extends JFrame{
 	private BufferedImage tankGunToopL1Image;
 	private BufferedImage tankGunToopL2Image;
 	private BufferedImage tankGunTirL1Image;
-	private BufferedImage bullet;
+	private BufferedImage heavyBullet;
+	private BufferedImage heavyBullet2;
+	private BufferedImage lightBullet;
+	private BufferedImage lightBullet2;
 	private double a= 0;
 	private double b= 0;
 	private double c= 0;
@@ -74,7 +72,9 @@ public class GameFrame extends JFrame{
 			tankGunToopL1Image = ImageIO.read(new File("Resources\\Images\\tankGun01.png"));
 			tankGunToopL2Image = ImageIO.read(new File("Resources\\Images\\tankGun1.png"));
 			tankGunTirL1Image = ImageIO.read(new File("Resources\\Images\\tankGun2.png"));
-			bullet = ImageIO.read(new File("Resources\\Images\\HeavyBullet2.png"));
+			heavyBullet = ImageIO.read(new File("Resources\\Images\\HeavyBullet2.png"));
+			lightBullet = ImageIO.read(new File("Resources\\Images\\LightBulletL1.png"));
+
 		}
 		catch(IOException e){
 			System.out.println(e);
@@ -150,14 +150,22 @@ public class GameFrame extends JFrame{
 		a=Math.atan((state.tank.getY()-GameState.mouseLiveY)/(state.tank.getX()-GameState.mouseLiveX));
 		if(GameState.mouseLiveX<state.tank.getX())
 			a+=Math.PI;
-		aa= (int) (state.tank.getX()+33*Math.sqrt(2)*Math.cos(a+Math.PI*5/4));
-		bb= (int) (state.tank.getY()+33*Math.sqrt(2)*Math.sin(a+Math.PI*5/4));
+		aa= (int) (state.tank.getX()-GameState.frameStartX+35*Math.sqrt(2)*Math.cos(a+Math.PI*5/4));
+		bb= (int) (state.tank.getY()-GameState.frameStartX+35*Math.sqrt(2)*Math.sin(a+Math.PI*5/4));
 
 		AffineTransform backup = g2d.getTransform();
 		AffineTransform trans = new AffineTransform();
 		trans.rotate( a, aa, bb ); // the points to rotate around (the center in my example, your left side for your problem)
 		g2d.transform( trans );
-		g2d.drawImage( tankGunToopL1Image, aa, bb,null );  // the actual location of the sprite
+		if(state.tank.getPresentGun()==1 && state.tank.getHeavyGunLevel()==1) {
+			g2d.drawImage(tankGunToopL1Image, aa, bb, null);  // the actual location of the sprite
+		}
+		else if(state.tank.getPresentGun()==1 && state.tank.getHeavyGunLevel()==2) {
+			g2d.drawImage(tankGunToopL2Image, aa, bb, null);  // the actual location of the sprite
+		}
+		else if(state.tank.getPresentGun()==2) {
+			g2d.drawImage(tankGunTirL1Image, aa, bb, null);  // the actual location of the sprite
+		}
 		g2d.setTransform( backup ); // restore previous transform
 
 
@@ -168,7 +176,12 @@ public class GameFrame extends JFrame{
                 AffineTransform trans2 = new AffineTransform();
                 trans2.rotate(bn.getAngleRad(), bn.getToShowX(), bn.getToShowY()); // the points to rotate around (the center in my example, your left side for your problem)
                 g2d.transform(trans2);
-                g2d.drawImage(bullet, bn.getToShowX(), bn.getToShowY(), null);  // the actual location of the sprite
+                if(bn.getType()== 1 )
+                	g2d.drawImage(heavyBullet, bn.getToShowX(), bn.getToShowY(), null);  // the actual location of the sprite
+				if(bn.getType()== 11 )
+					g2d.drawImage(lightBullet, bn.getToShowX(), bn.getToShowY(), null);  // the actual location of the sprite
+				if(bn.getType()== 31 )
+					g2d.drawImage(heavyBullet, bn.getToShowX(), bn.getToShowY(), null);  // the actual location of the sprite
                 g2d.setTransform(backup2);// restore previous transform
                 g2d.setColor(Color.CYAN);
                 g2d.setFont(g2d.getFont().deriveFont(100.0f));
@@ -181,6 +194,12 @@ public class GameFrame extends JFrame{
                 //System.out.println(kk+"   "+ll);
             }
         }
+		AffineTransform backup2 = g2d.getTransform();
+		AffineTransform trans2 = new AffineTransform();
+		trans2.rotate(state.tat.getAngleRad(), state.tat.getToShowX(), state.tat.getToShowY()); // the points to rotate around (the center in my example, your left side for your problem)
+		g2d.transform(trans2);
+        g2d.drawImage(tankImage,state.tat.getToShowX(),state.tat.getToShowY(),null);
+		g2d.setTransform(backup2);// restore previous transform
 
 
 

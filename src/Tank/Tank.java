@@ -17,6 +17,7 @@ public class Tank {
     protected int speed;
     protected int presentGun;//1 for Heavy 2 for Light
     protected int health;
+    protected int healthCapacity;
     protected boolean alive;
     protected int bonousLive;
     protected int heavyGunRemain;
@@ -24,10 +25,13 @@ public class Tank {
     protected int heavyGunLevel;
     protected int lightGunLevel;
     private int bulletShootSpeed;
+    public long lastBulletShootTime;
 
     public Tank (int startX,int startY){
+        lastBulletShootTime = System.currentTimeMillis();
         alive=true;
         health=100;
+        healthCapacity=100;
         bonousLive=1;
         x=startX;
         y=startY;
@@ -43,7 +47,7 @@ public class Tank {
         rotateSpeedRadius=speed/4;
         angleDeg = 0;
         radiusOfImage=50;
-        rotateSpeedDegree=4.5;
+        rotateSpeedDegree=9;
 
         //kjk
     }
@@ -180,7 +184,6 @@ public class Tank {
         angleRad=(p*angleDeg)/180;
         x += rotateSpeedRadius*Math.cos(angleRad);
         y += rotateSpeedRadius*Math.sin(angleRad);
-        System.out.println("DEGREE:  "+angleDeg);
     }
     private void updateToShow(){
         toShowX = (int) (x-GameState.frameStartX+radiusOfImage*RADICAL2*Math.cos((angleDeg+225)*p/180));
@@ -189,25 +192,36 @@ public class Tank {
     public void changeWeapon(){
         if(presentGun==1)
             presentGun=2;
-        else
+        else if(presentGun==2)
             presentGun=1;
         updateBulletShootSpeed();
     }
 
     public void upgradeWeapon(){
-        if(presentGun==1)
+        if(presentGun==1 && heavyGunLevel<2)
             heavyGunLevel+=1;
+        else if(presentGun==1 && heavyGunLevel==2 && lightGunLevel<2)
+            lightGunLevel+=1;
+        else if(presentGun==2 && lightGunLevel<2)
+            lightGunLevel+=1;
+        else if(presentGun==2 && lightGunLevel==2 && heavyGunLevel<2)
+            heavyGunLevel+=1;
+        else if(lightGunLevel==2 && heavyGunLevel==2 && healthCapacity<160)
+            healthCapacity+=20;
+        else if(lightGunLevel==2 && heavyGunLevel==2 && healthCapacity==160)
+            speed+=3;
         updateBulletShootSpeed();
     }
+
     private void updateBulletShootSpeed(){
         if(presentGun==1 && heavyGunLevel==1)
             bulletShootSpeed=600;
         if(presentGun==1 && heavyGunLevel==2)
             bulletShootSpeed=300;
         if(presentGun==2 && lightGunLevel==1)
-            bulletShootSpeed=20;
+            bulletShootSpeed=80;
         if(presentGun==2 && lightGunLevel==2)
-            bulletShootSpeed=100;
+            bulletShootSpeed=60;
     }
 
     public void shoot(){
@@ -229,11 +243,28 @@ public class Tank {
 
     private void updateLive(){
         if(health<=0 && bonousLive >0){
-            health=100;
+            healthCapacity=100;
+            health=healthCapacity;
             bonousLive--;
         }
         if(health<=0 && bonousLive <0)
             alive=false;
+    }
+
+    public void rapair(){
+        health=healthCapacity;
+    }
+
+    public void extraLive(){
+        bonousLive+=1;
+    }
+
+    public void upgradeHeavyRemain(int ex){
+        heavyGunRemain+=ex;
+    }
+
+    public void upgradeLightRemain(int ex){
+        lightGunRemain+=ex;
     }
 
     public double getAngleRad() {
