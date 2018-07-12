@@ -17,7 +17,7 @@ public class Map {
     }
 
     public static void main (String[] args) {
-        Map map = new Map( "Resources\\Save\\Map1.txt" );
+        Map map = new Map( "Resources\\Save\\Map1Normal.txt" );
     }
 
     public void readFromFile (String address) {
