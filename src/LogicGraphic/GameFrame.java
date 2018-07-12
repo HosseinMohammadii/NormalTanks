@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.plaf.basic.BasicTreeUI;
 import Bullet.Bullet;
 import Bullet.HeavyBullet;
+import Maps.Map1;
 import Tank.Tank;
 
 import static javax.swing.plaf.basic.BasicTreeUI.*;
@@ -75,6 +76,7 @@ public class GameFrame extends JFrame{
 			tankGunToopL2Image = ImageIO.read(new File("Resources\\Images\\tankGun1.png"));
 			tankGunTirL1Image = ImageIO.read(new File("Resources\\Images\\tankGun2.png"));
 			bullet = ImageIO.read(new File("Resources\\Images\\HeavyBullet2.png"));
+//			Map1.image0=ImageIO.read(new File("Resources\\Images\\Polar Granite.png"));
 		}
 		catch(IOException e){
 			System.out.println(e);
