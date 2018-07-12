@@ -1,0 +1,5 @@
+<root>
+    <item name='javax.imageio.ImageIO'>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+</root>
