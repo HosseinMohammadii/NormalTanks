@@ -11,6 +11,24 @@ abstract public class Wall {
 
     protected boolean exist;
 
+    protected int type;
+
+    public int getToShowX () {
+        return toShowX;
+    }
+
+    public int getToShowY () {
+        return toShowY;
+    }
+
+    public boolean isExist () {
+        return exist;
+    }
+
+    public int getType () {
+        return type;
+    }
+
     public Wall (int x, int y) {
         this.x = x;
         this.y = y;

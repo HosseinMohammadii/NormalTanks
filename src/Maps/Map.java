@@ -7,18 +7,28 @@ import java.util.Scanner;
 public class Map {
     protected String[][] numbers = new String[25][30];
     protected String address;
+    protected int mapHeight;
+    protected int mapWidth;
 
 
-    public Map (String address) {
-
+    public Map () {
+        mapHeight = 3000;
+        mapWidth = 2500;
         readFromFile( address );
 
 
     }
 
-    public static void main (String[] args) {
-        Map map = new Map( "Resources\\Save\\Map1Normal.txt" );
+    public int getMapHeight () {
+        return mapHeight;
     }
+
+    public int getMapWidth () {
+        return mapWidth;
+    }
+//    public static void main (String[] args) {
+//        Map map = new Map(  );
+//    }
 
     public void readFromFile (String address) {
 
@@ -34,7 +44,7 @@ public class Map {
         }
         String a = "";
         while (input.hasNextLine()) {
-            a =  a + input.nextLine();
+            a = a + input.nextLine();
             System.out.println( a );
 
         }
@@ -42,17 +52,17 @@ public class Map {
         for (int k = 0; k < b.length; k++) {
             System.out.println( b[k] );
         }
-        System.out.println(b.length);
+        System.out.println( b.length );
         for (int k = 0; k < b.length; k++) {
 
-            if(i==25)
-                i=0;
+            if (i == 25)
+                i = 0;
             j = k / 25;
             numbers[i][j] = b[k];
             i++;
         }
-        for (int k = 0; k <30 ; k++) {
-            for (int l = 0; l <25 ; l++) {
+        for (int k = 0; k < 30; k++) {
+            for (int l = 0; l < 25; l++) {
                 System.out.print( numbers[l][k] );
             }
             System.out.println();
@@ -60,4 +70,7 @@ public class Map {
 
     }
 
+    public String[][] getNumbers () {
+        return numbers;
+    }
 }
