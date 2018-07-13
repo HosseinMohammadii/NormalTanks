@@ -37,6 +37,15 @@ public class GameFrame extends JFrame{
 	private BufferedImage heavyBullet2;
 	private BufferedImage lightBullet;
 	private BufferedImage lightBullet2;
+	private BufferedImage EnemyStaticTank1;
+	private BufferedImage EnemyStaticTank1Gun;
+	private BufferedImage EnemyStaticTank2;
+	private BufferedImage EnemyStaticTank2Gun;
+	private BufferedImage EnemyDynamicTank1;
+	private BufferedImage EnemyDynamicTank1Gun;
+	private BufferedImage EnemyDynamicTank2;
+	private BufferedImage EnemyDynamicTank2Gun;
+
 	private double a= 0;
 	private double b= 0;
 	private double c= 0;
@@ -74,6 +83,15 @@ public class GameFrame extends JFrame{
 			tankGunTirL1Image = ImageIO.read(new File("Resources\\Images\\tankGun2.png"));
 			heavyBullet = ImageIO.read(new File("Resources\\Images\\HeavyBullet2.png"));
 			lightBullet = ImageIO.read(new File("Resources\\Images\\LightBulletL1.png"));
+			EnemyStaticTank1 = ImageIO.read(new File("Resources\\Images\\LightBulletL1.png"));
+			EnemyStaticTank1Gun = ImageIO.read(new File("Resources\\Images\\LightBulletL1.png"));
+			EnemyStaticTank2 = ImageIO.read(new File("Resources\\Images\\LightBulletL1.png"));
+			EnemyStaticTank2Gun = ImageIO.read(new File("Resources\\Images\\LightBulletL1.png"));
+			EnemyDynamicTank1 = ImageIO.read(new File("Resources\\Images\\E-100_strip2.png"));
+			EnemyDynamicTank1Gun = ImageIO.read(new File("Resources\\Images\\2.1.png"));
+			EnemyDynamicTank2 = ImageIO.read(new File("Resources\\Images\\LightBulletL1.png"));
+			EnemyDynamicTank2Gun = ImageIO.read(new File("Resources\\Images\\LightBulletL1.png"));
+
 
 		}
 		catch(IOException e){
@@ -169,7 +187,7 @@ public class GameFrame extends JFrame{
 		g2d.setTransform( backup ); // restore previous transform
 
 
-        if(GameState.bullets.size()>0) {
+        if(state.bullets.size()>0) {
 
             for (Bullet bn : GameState.bullets) {
                 AffineTransform backup2 = g2d.getTransform();
@@ -183,23 +201,29 @@ public class GameFrame extends JFrame{
 				if(bn.getType()== 31 )
 					g2d.drawImage(heavyBullet, bn.getToShowX(), bn.getToShowY(), null);  // the actual location of the sprite
                 g2d.setTransform(backup2);// restore previous transform
-                g2d.setColor(Color.CYAN);
-                g2d.setFont(g2d.getFont().deriveFont(100.0f));
-                g2d.drawString(Test, hh, jj);
-                g2d.setFont(g2d.getFont().deriveFont(100.0f));
-                g2d.drawString(Test, kk, ll);
-                g2d.setFont(g2d.getFont().deriveFont(100.0f));
-                g2d.drawString(Test, aaa, bbb);
-                //System.out.println(hh+"   "+jj);
-                //System.out.println(kk+"   "+ll);
             }
         }
 		AffineTransform backup2 = g2d.getTransform();
 		AffineTransform trans2 = new AffineTransform();
 		trans2.rotate(state.tat.getAngleRad(), state.tat.getToShowX(), state.tat.getToShowY()); // the points to rotate around (the center in my example, your left side for your problem)
 		g2d.transform(trans2);
-        g2d.drawImage(tankImage,state.tat.getToShowX(),state.tat.getToShowY(),null);
+        g2d.drawImage(EnemyDynamicTank1,state.tat.getToShowX(),state.tat.getToShowY(),null);
 		g2d.setTransform(backup2);// restore previous transform
+//		g2d.drawImage(tankImage,state.tat.getX()-50,state.tat.getY()-50,null);
+
+
+
+		AffineTransform backup6 = g2d.getTransform();
+		AffineTransform trans6 = new AffineTransform();
+		double ttttt= Math.atan((state.tat.getY() - state.tank.getY()) / (state.tat.getX() - state.tank.getX()));
+		if(state.tank.getX()<=state.tat.getX())
+			ttttt+=180;
+		aa= (int) (state.tat.getX()-GameState.frameStartX+50*Math.sqrt(2)*Math.cos(ttttt+Math.PI*5/4));
+		bb= (int) (state.tat.getY()-GameState.frameStartX+50*Math.sqrt(2)*Math.sin(ttttt+Math.PI*5/4));
+		trans6.rotate(ttttt, aa, bb); // the points to rotate around (the center in my example, your left side for your problem)
+		g2d.transform(trans6);
+		g2d.drawImage(EnemyDynamicTank1Gun,aa,bb,null);
+		g2d.setTransform(backup6);// restore previous transform
 
 
 

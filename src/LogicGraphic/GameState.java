@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import Bullet.*;
 import Tank.*;
 import EnemyTank.*;
+import Bonuses.*;
 
 
 /**
@@ -51,10 +52,16 @@ public class GameState {
     public static boolean hard = false;
     public static ArrayList<Bullet> bullets;
     ArrayList<Bullet> bulletsPointers;
-    public ArrayList<Bullet>enemyBullets;
+    public static ArrayList<Bullet>enemyBullets;
     ArrayList<Bullet>enemyBulletsPointer;
+    public ArrayList<EnemyTank> enemyTanks;
+    public ArrayList<EnemyTank> enemyTanksPointer;
+    public ArrayList<Tank> tanks;
+    public ArrayList<Tank> tanksPointer;
+    public ArrayList<Bonus> bonuses;
+    public ArrayList<Bonus> bonusesPointer;
     //public EnemyStaticTank ta=new EnemyStaticTank(600,600,System.currentTimeMillis(),1);
-    public EnemyDynamicTank tat=new EnemyDynamicTank(600,600,System.currentTimeMillis(),1);
+    public EnemyDynamicTank tat=new EnemyDynamicTank(20,500,System.currentTimeMillis(),1);
 
 
     public GameState() {
@@ -68,6 +75,7 @@ public class GameState {
         bulletsPointers = new ArrayList<>();
         enemyBullets = new ArrayList<>();
         enemyBulletsPointer = new ArrayList<>();
+        enemyTanks = new ArrayList<>();
 
         //
         keyUp = false;
@@ -92,10 +100,11 @@ public class GameState {
      * The method which updates the game state.
      */
     public void update() {
-        tat.updateStatus((int)tank.getX(),(int)tank.getY());
+
         mouseLiveX = MouseInfo.getPointerInfo().getLocation().getX();
         mouseLiveY = MouseInfo.getPointerInfo().getLocation().getY();
         tank.update();
+        tat.updateStatus(tank.getX(),tank.getY());
 
         if(leftMouseClick){
             if (tank.getPresentGun() == 1 && tank.getHeavyGunRemain() > 0 && tank.getHeavyGunLevel() == 1) {
@@ -124,6 +133,57 @@ public class GameState {
                 }
             }
         }
+
+        for(EnemyTank tank:enemyTanks){
+            for(Bullet bullet : bullets){
+                if(tank.getX() - 40 < bullet.getX() && tank.getX() + 30 > bullet.getX() && tank.getY() - 40 < bullet.getY() && tank.getY() + 30 > bullet.getY()){
+                    tank.hurt(bullet.getDamage());
+                    bullet.expire();
+                }
+            }
+        }
+        for(Tank tank: tanks){
+            for(Bullet bullet : enemyBullets){
+                if(tank.getX() - 40 < bullet.getX() && tank.getX() + 30 > bullet.getX() && tank.getY() - 40 < bullet.getY() && tank.getY() + 30 > bullet.getY()){
+                    tank.hurt(bullet.getDamage());
+                    bullet.expire();
+                }
+            }
+            for(Bonus bonus:bonuses){
+                if(tank.getX() - 40 < bonus.getX() && tank.getX() + 30 > bonus.getX() && tank.getY() - 40 < bonus.getY() && tank.getY() + 30 > bonus.getY()){
+                    if(bonus.getType()==101) {
+                        tank.extraLive();
+                        bonus.eat();
+                    }
+                    else if(bonus.getType()==102) {
+                        tank.upgradeHeavyRemain(bonus.giveBonus());
+                        bonus.eat();
+                    }
+                    else if(bonus.getType()==103) {
+                        tank.upgradeLightRemain(bonus.giveBonus());
+                        bonus.eat();
+                    }
+                    else if(bonus.getType()==104) {
+                        tank.rapair();
+                        bonus.eat();
+                    }
+                    else if(bonus.getType()==105) {
+                        tank.upgradeWeapon();
+                        bonus.eat();
+                    }
+
+                }
+            }
+        }
+        updateBulletsArray();
+        updateEnemyBulletsArray();
+        updateEnenyTanksArray();
+
+
+
+    }
+
+    private void updateBulletsArray(){
         for (Bullet bullet : bullets) {
             bullet.updateLoc();
             if (!bullet.isUsable()) {
@@ -134,8 +194,34 @@ public class GameState {
             bullets.remove(pointer);
         }
         bulletsPointers.clear();
+    }
 
+    private void updateEnemyBulletsArray(){
+        for (Bullet bullet : enemyBullets) {
+            bullet.updateLoc();
+            if (!bullet.isUsable()) {
+                enemyBulletsPointer.add(bullet);
+            }
+        }
+        for (Bullet pointer : enemyBulletsPointer) {
+            enemyBullets.remove(pointer);
+        }
+        enemyBulletsPointer.clear();
+    }
 
+    private void updateEnenyTanksArray(){
+        for(EnemyTank tank : enemyTanks){
+            if(solo)
+            tank.updateStatus(tanks.get(0).getX(),tanks.get(0).getY());
+            if(co_op){
+                tank.updateStatus(tanks.get(0).getX(),tanks.get(0).getY(),tanks.get(1).getX(),tanks.get(1).getY());
+            }
+            if(!tank.isAlive())
+                enemyTanksPointer.add(tank);
+        }
+        for(EnemyTank tan:enemyTanksPointer)
+            enemyTanks.remove(tan);
+        enemyTanksPointer.clear();
     }
 
     public static boolean isSolo() {

@@ -1,10 +1,10 @@
 package EnemyTank;
-import Bullet.*;
+
+import Bullet.EnemyHeavyBullet1;
 import LogicGraphic.GameState;
 
-public class EnemyStaticTank extends EnemyTank{
-
-    public EnemyStaticTank(int x, int y, long lastBulletShootTime, double lifeHardness) {
+public class EnemyStaticTank2 extends EnemyTank {
+    public EnemyStaticTank2(int x, int y, long lastBulletShootTime, double lifeHardness) {
         super(x, y, lastBulletShootTime, lifeHardness);
         super.health=10*(int)lifeHardness;
         bulletShootSpeed=900;
@@ -12,7 +12,7 @@ public class EnemyStaticTank extends EnemyTank{
         radiusOfImage=50;
     }
 
-@Override
+    @Override
     public void updateStatus(double targetX, double targetY) {
         calAngle((int)targetX,(int) targetY);
         if ((x - areaDef < targetX || x + areaDef > targetX) && (y - areaDef < targetY || y + areaDef < targetY)) {

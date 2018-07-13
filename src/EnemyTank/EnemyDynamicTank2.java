@@ -1,19 +1,16 @@
 package EnemyTank;
 
-import Bullet.EnemyHeavyBullet1;
-import LogicGraphic.GameState;
+import Bullet.*;
+import LogicGraphic.*;
 
-public class EnemyDynamicTank extends EnemyTank {
+public class EnemyDynamicTank2 extends EnemyTank{
 
-
-    public EnemyDynamicTank(int x, int y, long lastBulletShootTime, double lifeHardness) {
+    public EnemyDynamicTank2(int x, int y, long lastBulletShootTime, double lifeHardness) {
         super(x, y, lastBulletShootTime, lifeHardness);
         health = 10 * (int) lifeHardness;
         areaDef=350;
         bulletShootSpeed=1000;
-        //1000
-        rotateSpeedRadius=2.75;
-        //2.75
+        rotateSpeedRadius=3.25;
         rotateSpeedDegree=4.5;
         angleDeg=0;
         angleRad=0;
@@ -21,43 +18,23 @@ public class EnemyDynamicTank extends EnemyTank {
         areaDef2=100;
     }
 
-
-@Override
-public void updateStatus(double targetX, double targetY) {
-    if ((x - areaDef < targetX && x + areaDef > targetX) && (y - areaDef < targetY && y + areaDef > targetY)) {
-        if ((x + areaDef2 > targetX && x - areaDef2 < targetX) && (y + areaDef2 > targetY && y - areaDef2 < targetY)) {
-        }else{
-            calAngle(targetX, targetY);
-            updateAngle();
-            updateByAngleDeg();
-            updateToShow();
-//        updateLoc(targetX,targetY);
-        }
-        shoot((int) targetX, (int) targetY);
-    }
-}
-
-
     @Override
-    public void updateStatus(double targetX,double targetY,double target2X,double target2Y) {
-        if((Math.abs(x-targetX)*Math.abs(x-targetX)*Math.abs(y-targetY)*Math.abs(y-targetY))<=(Math.abs(x-target2X)*Math.abs(x-target2X)*Math.abs(y-target2Y)*Math.abs(y-target2Y))) {
-            defineAndShoot(targetX, targetY);
-        }
-        else{
-            defineAndShoot(target2X, target2Y);
-        }
-    }
-
-    private void defineAndShoot(double target2X, double target2Y) {
-        if ((x - areaDef < target2X && x + areaDef > target2X) && (y - areaDef < target2Y && y + areaDef > target2Y)) {
-            if (!((x + areaDef2 > target2X && x - areaDef2 < target2X) && (y + areaDef2 > target2Y && y - areaDef2 < target2Y))) {
-                calAngle(target2X, target2Y);
+    public void updateStatus(double targetX, double targetY) {
+        if ((x - areaDef < targetX && x + areaDef > targetX) && (y - areaDef < targetY && y + areaDef > targetY)) {
+            if ((x + areaDef2 > targetX && x - areaDef2 < targetX) && (y + areaDef2 > targetY && y - areaDef2 < targetY)) {
+            }else{
+                calAngle(targetX, targetY);
                 updateAngle();
                 updateByAngleDeg();
                 updateToShow();
             }
-            shoot((int) target2X, (int) target2Y);
+            shoot((int) targetX, (int) targetY);
         }
+    }
+
+    @Override
+    public void updateStatus(double targetX, double targetY, double target2X, double target2Y) {
+
     }
 
     private void calAngle(double targetX,double targetY){
@@ -65,7 +42,7 @@ public void updateStatus(double targetX, double targetY) {
 //            requestAngleRad = Math.atan((y - targetY) / (x + 1 - targetX));
 //        }
 //        else{
-            requestAngleRad = Math.atan((y - targetY) / (x - targetX));
+        requestAngleRad = Math.atan((y - targetY) / (x - targetX));
 //    }
         requestAngleDeg=180*requestAngleRad/Math.PI;
         if(targetX<=x)
@@ -115,7 +92,7 @@ public void updateStatus(double targetX, double targetY) {
     }
 
     private void updateToShow(){
-        toShowX = (int) (x-GameState.frameStartX+radiusOfImage*RADICAL2*Math.cos((angleDeg+225)*p/180));
+        toShowX = (int) (x- GameState.frameStartX+radiusOfImage*RADICAL2*Math.cos((angleDeg+225)*p/180));
         toShowY = (int) (y-GameState.frameStartY+radiusOfImage*RADICAL2*Math.sin((angleDeg+225)*p/180));
     }
 
@@ -136,8 +113,4 @@ public void updateStatus(double targetX, double targetY) {
         else if(y-targetY<0)
             y+=2;
     }
-
-
-
-
 }

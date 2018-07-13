@@ -1,17 +1,57 @@
 package Bonuses;
 //
 public abstract class Bonus {
-    private int x;
-    private int y;
+    protected int x;
+    protected int y;
+    protected int type;
+    protected int capacity;
 
-    private int toShowX;
-    private int toShowY;
+
+    protected int toShowX;
+    protected int toShowY;
 
     private boolean exist;
 
-    public Bonus (int x, int y) {
+    public Bonus(int x, int y) {
         this.x = x;
         this.y = y;
         exist = true;
+        updateToShow();
+    }
+
+    public void eat() {
+        exist = false;
+    }
+    private void updateToShow(){
+        toShowX=x-25;
+        toShowY=y-25;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public int giveBonus(){
+        return capacity;
+    }
+
+    public int getToShowX() {
+        return toShowX;
+    }
+
+    public int getToShowY() {
+        return toShowY;
+    }
+
+    public boolean isExist() {
+        return exist;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 }

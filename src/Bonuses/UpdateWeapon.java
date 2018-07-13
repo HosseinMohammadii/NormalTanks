@@ -4,6 +4,7 @@ public class UpdateWeapon extends Bonus{
 //
     public UpdateWeapon (int x, int y) {
         super( x, y );
+        type=105;
     }
 }
 
