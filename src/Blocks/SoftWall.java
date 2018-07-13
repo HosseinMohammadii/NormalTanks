@@ -8,6 +8,8 @@ public class SoftWall extends Wall {
         super( x, y );
         imageRadius = 50;
         health = 40;
+        type=201;
+
     }
 
     public void healthReducing (int damage) {
