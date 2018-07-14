@@ -1,5 +1,10 @@
 package Bullet;
 import LogicGraphic.*;
+
+/**
+ * this class is for handling Bullets
+ * and has fields like its position and damage
+ */
 public class Bullet {
     protected int speed;
     protected int x;
@@ -20,9 +25,14 @@ public class Bullet {
     protected int type;
 
 
-
-
-
+    /**
+     * this constructor give the source position
+     * and the position of place that click there
+     * @param sourceX
+     * @param sourceY
+     * @param clickedX
+     * @param clickedY
+     */
     public Bullet(int sourceX,int sourceY,int clickedX,int clickedY){
         isUsable=true;
         this.sourceX=sourceX;
@@ -68,38 +78,74 @@ public class Bullet {
         return damage;
     }
 
+    /**
+     * getter for speed
+     * @return
+     */
     public int getSpeed() {
         return speed;
     }
 
+    /**
+     * setter for speed
+     * @param speed
+     */
     public void setSpeed(int speed) {
         this.speed = speed;
     }
 
+    /**
+     * getter for x
+     * @return
+     */
     public int getX() {
         return x;
     }
 
+    /**
+     * setter for x
+     * @param x
+     */
     public void setX(int x) {
         this.x = x;
     }
 
+    /**
+     * getter for Y
+     * @return
+     */
     public int getY() {
         return y;
     }
 
+    /**
+     * setter for y
+     * @param y
+     */
     public void setY(int y) {
         this.y = y;
     }
 
+    /**
+     * getter for damage
+     * @return
+     */
     public int getDamage() {
         return damage;
     }
 
+    /**
+     * to set damage
+     * @param damage
+     */
     public void setDamage(int damage) {
         this.damage = damage;
     }
 
+    /**
+     * for getting isUsable
+     * @return
+     */
     public boolean isUsable() {
         return isUsable;
     }
@@ -108,6 +154,10 @@ public class Bullet {
         isUsable = usable;
     }
 
+    /**
+     * getter for angelRad
+     * @return
+     */
     public double getAngleRad() {
         return angleDeg*Math.PI/180;
     }
@@ -140,18 +190,34 @@ public class Bullet {
         this.sourceY = sourceY;
     }
 
+    /**
+     * getter for toShowX
+     * @return
+     */
     public int getToShowX() {
         return toShowX;
     }
 
+    /**
+     * setter for toShowX
+     * @param toShowX
+     */
     public void setToShowX(int toShowX) {
         this.toShowX = toShowX;
     }
 
+    /**
+     * getter for toShowY
+     * @return
+     */
     public int getToShowY() {
         return toShowY;
     }
 
+    /**
+     * setter for toShowY
+     * @param toShowY
+     */
     public void setToShowY(int toShowY) {
         this.toShowY = toShowY;
     }
@@ -172,6 +238,10 @@ public class Bullet {
         this.toCenterY = toCenterY;
     }
 
+    /**
+     * getter for radiusOfImage
+     * @return
+     */
     public double getRadiusOfImage() {
         return radiusOfImage;
     }
@@ -180,14 +250,26 @@ public class Bullet {
         return angleDeg;
     }
 
+    /**
+     * method for set radiusOfImage
+     * @param radiusOfImage
+     */
     public void setRadiusOfImage(int radiusOfImage) {
         this.radiusOfImage = radiusOfImage;
     }
 
+    /**
+     * getter for time
+     * @return time
+     */
     public long getTime() {
         return time;
     }
 
+    /**
+     * getter for type
+     * @return type
+     */
     public int getType() {
         return type;
     }

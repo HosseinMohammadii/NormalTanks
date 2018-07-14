@@ -1,6 +1,13 @@
 package Blocks;
-
+/**
+ * this class is extends from wall
+ */
 public class HardWall extends Wall {
+    /**
+     * give position in its constructor
+     * @param x
+     * @param y
+     */
     public HardWall (int x, int y) {
         super( x, y );
         imageRadius=50;

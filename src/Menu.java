@@ -47,7 +47,7 @@ public class Menu implements MouseListener {
 
     public void playSound () {
         try {
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream( new File( "C:\\Users\\ES\\IdeaProjects\\Normal_Tanks\\Resources\\Sounds\\gameSound1.wav" ).getAbsoluteFile() );
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream( new File( "Resources\\Sounds\\gameSound1.wav" ).getAbsoluteFile() );
             clip = AudioSystem.getClip();
             clip.open( audioInputStream );
             clip.start();
@@ -69,6 +69,10 @@ public class Menu implements MouseListener {
         else if (e.getXOnScreen() > 100 && e.getXOnScreen() < 240 && e.getYOnScreen() > 315 && e.getYOnScreen() < 360 && SUP1.getIcon().equals( startImage0 )) {
             SUP1.setIcon(startImage1 );
             GameState.setCo_op(true);
+        }
+        else if (e.getXOnScreen() > 100 && e.getXOnScreen() < 240 && e.getYOnScreen() > 360 && e.getYOnScreen() < 400 && SUP1.getIcon().equals( startImage0 )) {
+            SUP1.setIcon(startImage1 );
+            GameState.setMapEditor(true);
         }
 
         else if (e.getXOnScreen() > 150 && e.getXOnScreen() < 300 && e.getYOnScreen() > 280 && e.getYOnScreen() < 315&& SUP1.getIcon().equals( startImage1 ) ) {

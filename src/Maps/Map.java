@@ -4,13 +4,18 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/**
+ * this class is mother of all our map classes
+ */
 public class Map {
     protected String[][] numbers = new String[25][30];
     protected String address;
     protected int mapHeight;
     protected int mapWidth;
 
-
+    /**
+     * give height an width of map
+     */
     public Map () {
         mapHeight = 3000;
         mapWidth = 2500;
@@ -19,17 +24,25 @@ public class Map {
 
     }
 
+    /**
+     * for gettin MapHeight
+     * @return
+     */
     public int getMapHeight () {
         return mapHeight;
     }
-
+    /**
+     * for gettin MapWidth
+     * @return
+     */
     public int getMapWidth () {
         return mapWidth;
     }
-//    public static void main (String[] args) {
-//        Map map = new Map(  );
-//    }
 
+    /**
+     * for reading map from txt file
+     * @param address
+     */
     public void readFromFile (String address) {
 
         int i = 0;
@@ -70,6 +83,10 @@ public class Map {
 
     }
 
+    /**
+     * to get 2d String[][]
+     * @return
+     */
     public String[][] getNumbers () {
         return numbers;
     }

@@ -2,9 +2,20 @@ package EnemyTank;
 
 import Bullet.*;
 import LogicGraphic.*;
-
+/**
+ * this class is for EnemyDynamicTank2
+ * that is synamic and has
+ * it's field
+ * and has dynamic fields
+ */
 public class EnemyDynamicTank2 extends EnemyTank{
-
+    /**
+     * constructor of this class that give the buttom params
+     * @param x
+     * @param y
+     * @param lastBulletShootTime
+     * @param lifeHardness
+     */
     public EnemyDynamicTank2(int x, int y, long lastBulletShootTime, double lifeHardness) {
         super(x, y, lastBulletShootTime, lifeHardness);
         health = 10 * (int) lifeHardness;
@@ -17,7 +28,11 @@ public class EnemyDynamicTank2 extends EnemyTank{
         radiusOfImage=50;
         areaDef2=100;
     }
-
+    /**
+     * override this class from enemy tan class
+     * @param targetX
+     * @param targetY
+     */
     @Override
     public void updateStatus(double targetX, double targetY) {
         if ((x - areaDef < targetX && x + areaDef > targetX) && (y - areaDef < targetY && y + areaDef > targetY)) {
@@ -31,12 +46,24 @@ public class EnemyDynamicTank2 extends EnemyTank{
             shoot((int) targetX, (int) targetY);
         }
     }
-
+    /**
+     *      * override this class from enemy tan class
+     * @param targetX
+     * @param targetY
+     * @param target2X
+     * @param target2Y
+     */
     @Override
     public void updateStatus(double targetX, double targetY, double target2X, double target2Y) {
 
     }
 
+    /**
+     * /**
+     * method to calculate the angle
+     * @param targetX
+     * @param targetY
+     */
     private void calAngle(double targetX,double targetY){
 //        if(targetX==x) {
 //            requestAngleRad = Math.atan((y - targetY) / (x + 1 - targetX));
@@ -50,6 +77,11 @@ public class EnemyDynamicTank2 extends EnemyTank{
 
     }
 
+    /**
+     * method to update the angle
+     * that have more if
+     * and else if
+     */
     public void updateAngle(){
         if(requestAngleDeg>=360)
             requestAngleDeg-=360;
@@ -84,25 +116,41 @@ public class EnemyDynamicTank2 extends EnemyTank{
 
     }
 
+    /**
+     * method to update by angel degree
+     */
     private void updateByAngleDeg(){
         angleRad=(p*angleDeg)/180;
         x += rotateSpeedRadius*Math.cos(angleRad);
         y += rotateSpeedRadius*Math.sin(angleRad);
 
     }
-
+    /**
+     * update frame to show
+     * calculate the
+     * toShowX
+     * and
+     * toShowY
+     */
     private void updateToShow(){
         toShowX = (int) (x- GameState.frameStartX+radiusOfImage*RADICAL2*Math.cos((angleDeg+225)*p/180));
         toShowY = (int) (y-GameState.frameStartY+radiusOfImage*RADICAL2*Math.sin((angleDeg+225)*p/180));
     }
-
+    /**
+     * for handel the shootin of enemy tank
+     * @param targetX
+     * @param targetY
+     */
     private void shoot(int targetX,int targetY){
         if (System.currentTimeMillis() >= (lastBulletShootTime + bulletShootSpeed)) {
             GameState.enemyBullets.add(new EnemyHeavyBullet1(x,y, targetX, targetY));
             lastBulletShootTime = System.currentTimeMillis();
         }
     }
-
+/**
+ * method to update
+ * the location of tank
+ */
     private void updateLoc(double targetX , double targetY){
         if(x-targetX>0)
             x-=2;
