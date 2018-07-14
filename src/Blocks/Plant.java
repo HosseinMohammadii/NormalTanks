@@ -14,6 +14,11 @@ package Blocks;
             type=203;
 
         }
+
+        @Override
+        public void hurt(int damage) {
+
+        }
         //the size of height and width is 100
 
 

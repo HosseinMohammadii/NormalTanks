@@ -13,4 +13,9 @@ public class Ground extends Wall {
         super( x, y );
         type=209;
     }
+
+    @Override
+    public void hurt(int damage) {
+
+    }
 }

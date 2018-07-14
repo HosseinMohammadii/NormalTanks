@@ -9,18 +9,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
 import Bullet.*;
 import Tank.*;
 import EnemyTank.*;
 import Bonuses.*;
-
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
 
 
 /**
@@ -52,7 +46,6 @@ public class GameState {
     public static double mouseLiveY;
     public static boolean solo = false;
     public static boolean co_op = false;
-    public static boolean mapEditor=false;
 
     public static boolean easy = false;
     public static boolean normal = false;
@@ -117,72 +110,24 @@ public class GameState {
             if (tank.getPresentGun() == 1 && tank.getHeavyGunRemain() > 0 && tank.getHeavyGunLevel() == 1) {
                 if (System.currentTimeMillis() >= (tank.lastBulletShootTime + tank.getBulletShootSpeed())) {
                     bullets.add(new HeavyBullet((int) tank.getX(), (int) tank.getY(), (int) mouseLiveX, (int) mouseLiveY));
-//                    try {
-//                        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream( new File( "Resources\\Sounds\\heavygun.wav" ).getAbsoluteFile() );
-//                        Clip clip = AudioSystem.getClip();
-//                        clip.open( audioInputStream );
-//                        clip.start();
-//
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    } catch (Exception ex) {
-//                        System.out.println( "Error with playing sound." );
-//                        ex.printStackTrace();
-//                    }
                     tank.shoot();
                     tank.lastBulletShootTime = System.currentTimeMillis();
                 }
             } else if (tank.getPresentGun() == 1 && tank.getHeavyGunRemain() > 0 && tank.getHeavyGunLevel() == 2) {
                 if (System.currentTimeMillis() >= (tank.lastBulletShootTime + tank.getBulletShootSpeed())) {
                     bullets.add(new HeavyBullet2((int) tank.getX(), (int) tank.getY(), (int) mouseLiveX, (int) mouseLiveY));
-                    //                    try {
-//                        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream( new File( "Resources\\Sounds\\heavygun.wav" ).getAbsoluteFile() );
-//                        Clip clip = AudioSystem.getClip();
-//                        clip.open( audioInputStream );
-//                        clip.start();
-//
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    } catch (Exception ex) {
-//                        System.out.println( "Error with playing sound." );
-//                        ex.printStackTrace();
-//                    }
                     tank.shoot();
                     tank.lastBulletShootTime = System.currentTimeMillis();
                 }
             } else if (tank.getPresentGun() == 2 && tank.getLightGunRemain() > 0 && tank.getLightGunLevel() == 1) {
                 if (System.currentTimeMillis() >= (tank.lastBulletShootTime + tank.getBulletShootSpeed())) {
                     bullets.add(new LightBullet((int) tank.getX(), (int) tank.getY(), (int) mouseLiveX, (int) mouseLiveY));
-                    //                    try {
-//                        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream( new File( "Resources\\Sounds\\lightgun.wav" ).getAbsoluteFile() );
-//                        Clip clip = AudioSystem.getClip();
-//                        clip.open( audioInputStream );
-//                        clip.start();
-//
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    } catch (Exception ex) {
-//                        System.out.println( "Error with playing sound." );
-//                        ex.printStackTrace();
-//                    }
                     tank.shoot();
                     tank.lastBulletShootTime = System.currentTimeMillis();
                 }
             } else if (tank.getPresentGun() == 2 && tank.getLightGunRemain() > 0 && tank.getLightGunLevel() == 2) {
                 if (System.currentTimeMillis() >= (tank.lastBulletShootTime + tank.getBulletShootSpeed())) {
                     bullets.add(new LightBullet2((int) tank.getX(), (int) tank.getY(), (int) mouseLiveX, (int) mouseLiveY));
-                    //                    try {
-//                        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream( new File( "Resources\\Sounds\\lightgun.wav" ).getAbsoluteFile() );
-//                        Clip clip = AudioSystem.getClip();
-//                        clip.open( audioInputStream );
-//                        clip.start();
-//
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    } catch (Exception ex) {
-//                        System.out.println( "Error with playing sound." );
-//                        ex.printStackTrace();
-//                    }
                     tank.shoot();
                     tank.lastBulletShootTime = System.currentTimeMillis();
                 }
@@ -289,14 +234,6 @@ public class GameState {
 
     public static boolean isCo_op() {
         return co_op;
-    }
-
-    public static boolean isMapEditor () {
-        return mapEditor;
-    }
-
-    public static void setMapEditor (boolean mapEditor) {
-        GameState.mapEditor = mapEditor;
     }
 
     public static void setCo_op(boolean co_op) {
