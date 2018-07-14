@@ -1,7 +1,14 @@
 package EnemyTank;
 
+/**
+ * the mother class of enemy tank
+ * that all extends to it
+ */
 public abstract class EnemyTank {
 
+    protected static final double p = Math.PI;
+    protected static final double RADICAL2 = Math.sqrt( 2 );
+    public long lastBulletShootTime;
     protected int x;
     protected int y;
     protected int targetX;
@@ -13,8 +20,6 @@ public abstract class EnemyTank {
     protected double angleRad;
     protected int areaDef;
     protected int areaDef2;
-    protected static final double p=Math.PI;
-    protected static final double RADICAL2=Math.sqrt(2);
     protected double rotateSpeedDegree;
     protected double rotateSpeedRadius;
     protected double radiusOfImage;
@@ -22,57 +27,120 @@ public abstract class EnemyTank {
     protected int health;
     protected boolean alive;
     protected int bulletShootSpeed;
-    public long lastBulletShootTime;
     protected double requestAngleDeg;
     protected double requestAngleRad;
 
-    public EnemyTank(int x, int y,long lastBulletShootTime,double lifeHardness) {
+    /**
+     * constructor of this class that give the buttom params
+     *
+     * @param x
+     * @param y
+     * @param lastBulletShootTime
+     * @param lifeHardness
+     */
+    public EnemyTank (int x, int y, long lastBulletShootTime, double lifeHardness) {
         this.x = x;
         this.y = y;
         this.lastBulletShootTime = lastBulletShootTime;
-        alive=true;
-    }
-    public abstract void updateStatus(double targetX,double targetY);
-
-    public abstract void updateStatus(double targetX,double targetY,double target2X,double target2Y);
-
-    public void hurt(int damage){
-        health-=damage;
-        if(health<=0)
-            alive=false;
+        alive = true;
     }
 
+    /**
+     * override this class from enemy tan class
+     *
+     * @param targetX
+     * @param targetY
+     */
+    public abstract void updateStatus (double targetX, double targetY);
+
+    /**
+     * override this class from enemy tan class
+     *
+     * @param targetX
+     * @param targetY
+     */
+    public abstract void updateStatus (double targetX, double targetY, double target2X, double target2Y);
+
+    /**
+     * to handel the hurt of tank
+     *
+     * @param damage
+     */
+    public void hurt (int damage) {
+        health -= damage;
+        if (health <= 0) alive = false;
+    }
 
 
-    public int getX() {
+    /**
+     * method to get X
+     *
+     * @return
+     */
+    public int getX () {
         return x;
     }
 
-    public int getY() {
+    /**
+     * method to get Y
+     *
+     * @return
+     */
+    public int getY () {
         return y;
     }
 
-    public int getTargetX() {
+    /**
+     * method to get target
+     *
+     * @return
+     */
+    public int getTargetX () {
         return targetX;
     }
 
-    public int getToShowX() {
+    /**
+     * to get toShowX
+     *
+     * @return
+     */
+    public int getToShowX () {
         return toShowX;
     }
 
-    public int getToShowY() {
+    /**
+     * metjod to get toShowY
+     *
+     * @return
+     */
+    public int getToShowY () {
         return toShowY;
     }
 
-    public double getAngleRad() {
-        return (angleDeg*p)/180;
+    /**
+     * real method to get deg of angel
+     *
+     * @return
+     */
+    public double getAngleRad () {
+        return (angleDeg * p) / 180;
     }
 
-    public double getAngleDeg() {
+    /**
+     * method to get deg of angel
+     *
+     * @return
+     */
+    public double getAngleDeg () {
         return angleDeg;
     }
 
-    public boolean isAlive() {
+    /**
+     * method to get alive
+     *
+     * @return
+     */
+    public boolean isAlive () {
         return alive;
     }
 
