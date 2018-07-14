@@ -4,20 +4,9 @@
     <list default="true" id="85613aeb-b8a8-437c-81e3-bf60a8c3b782" name="Default" comment="EnemyTank and bullets handling progressed">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/Blocks/Ground.java" afterPath="$PROJECT_DIR$/src/Blocks/Ground.java" />
-      <change beforePath="$PROJECT_DIR$/src/Blocks/HardWall.java" afterPath="$PROJECT_DIR$/src/Blocks/HardWall.java" />
-      <change beforePath="$PROJECT_DIR$/src/Blocks/Plant.java" afterPath="$PROJECT_DIR$/src/Blocks/Plant.java" />
-      <change beforePath="$PROJECT_DIR$/src/Blocks/SoftWall.java" afterPath="$PROJECT_DIR$/src/Blocks/SoftWall.java" />
-      <change beforePath="$PROJECT_DIR$/src/Blocks/Wall.java" afterPath="$PROJECT_DIR$/src/Blocks/Wall.java" />
       <change beforePath="$PROJECT_DIR$/src/Bonuses/Bonus.java" afterPath="$PROJECT_DIR$/src/Bonuses/Bonus.java" />
-      <change beforePath="$PROJECT_DIR$/src/Bullet/Bullet.java" afterPath="$PROJECT_DIR$/src/Bullet/Bullet.java" />
       <change beforePath="$PROJECT_DIR$/src/EnemyTank/EnemyDynamicTank.java" afterPath="$PROJECT_DIR$/src/EnemyTank/EnemyDynamicTank.java" />
       <change beforePath="$PROJECT_DIR$/src/EnemyTank/EnemyDynamicTank2.java" afterPath="$PROJECT_DIR$/src/EnemyTank/EnemyDynamicTank2.java" />
-      <change beforePath="$PROJECT_DIR$/src/EnemyTank/EnemyStaticTank.java" afterPath="$PROJECT_DIR$/src/EnemyTank/EnemyStaticTank.java" />
-      <change beforePath="$PROJECT_DIR$/src/EnemyTank/EnemyStaticTank2.java" afterPath="$PROJECT_DIR$/src/EnemyTank/EnemyStaticTank2.java" />
-      <change beforePath="$PROJECT_DIR$/src/EnemyTank/EnemyTank.java" afterPath="$PROJECT_DIR$/src/EnemyTank/EnemyTank.java" />
-      <change beforePath="$PROJECT_DIR$/src/LogicGraphic/GameFrame.java" afterPath="$PROJECT_DIR$/src/LogicGraphic/GameFrame.java" />
-      <change beforePath="$PROJECT_DIR$/src/LogicGraphic/GameState.java" afterPath="$PROJECT_DIR$/src/LogicGraphic/GameState.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="C:\Users\Hossein\IdeaProjects\Normal Tanks\.idea\shelf/" />
@@ -30,216 +19,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Tank.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Tank/Tank.java">
+      <file leaf-file-name="Map1Easy.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/Save/Map1Easy.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="55" column="23" lean-forward="false" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="23" />
-              <folding>
-                <element signature="method#updateAngle#0;class#Tank#0" expanded="false" />
-                <element signature="method#updateByAngleDeg#0;class#Tank#0" expanded="false" />
-                <element signature="method#updateToShow#0;class#Tank#0" expanded="false" />
-                <element signature="method#changeWeapon#0;class#Tank#0" expanded="false" />
-                <element signature="method#upgradeWeapon#0;class#Tank#0" expanded="false" />
-                <element signature="method#updateBulletShootSpeed#0;class#Tank#0" expanded="false" />
-                <element signature="method#shoot#0;class#Tank#0" expanded="false" />
-                <element signature="method#hurt#0;class#Tank#0" expanded="false" />
-                <element signature="method#updateLive#0;class#Tank#0" expanded="false" />
-                <element signature="e#8067#8068#0" expanded="true" />
-                <element signature="e#8106#8107#0" expanded="true" />
-                <element signature="e#8138#8139#0" expanded="true" />
-                <element signature="e#8168#8169#0" expanded="true" />
-                <element signature="e#8199#8200#0" expanded="true" />
-                <element signature="e#8229#8230#0" expanded="true" />
-                <element signature="e#8257#8258#0" expanded="true" />
-                <element signature="e#8281#8282#0" expanded="true" />
-                <element signature="e#8309#8310#0" expanded="true" />
-                <element signature="e#8333#8334#0" expanded="true" />
-                <element signature="e#8372#8373#0" expanded="true" />
-                <element signature="e#8411#8412#0" expanded="true" />
-                <element signature="e#8445#8446#0" expanded="true" />
-                <element signature="e#8478#8479#0" expanded="true" />
-                <element signature="e#8516#8517#0" expanded="true" />
-                <element signature="e#8553#8554#0" expanded="true" />
-                <element signature="e#8591#8592#0" expanded="true" />
-                <element signature="e#8628#8629#0" expanded="true" />
-                <element signature="e#8665#8666#0" expanded="true" />
-                <element signature="e#8701#8702#0" expanded="true" />
-                <element signature="e#8738#8739#0" expanded="true" />
-                <element signature="e#8774#8775#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameFrame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/LogicGraphic/GameFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2475">
-              <caret line="193" column="21" lean-forward="false" selection-start-line="193" selection-start-column="21" selection-end-line="193" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Map.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Maps/Map.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameState.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/LogicGraphic/GameState.java">
+      <file leaf-file-name="EnemyDynamicTank.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/EnemyTank/EnemyDynamicTank.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2566">
-              <caret line="99" column="25" lean-forward="false" selection-start-line="99" selection-start-column="25" selection-end-line="99" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#initMap#0;class#GameState#0" expanded="false" />
-                <element signature="method#initObjects#0;class#GameState#0" expanded="false" />
-                <element signature="method#updateBulletsArray#0;class#GameState#0" expanded="false" />
-                <element signature="method#updateEnemyBulletsArray#0;class#GameState#0" expanded="false" />
-                <element signature="method#updateEnemyTanksArray#0;class#GameState#0" expanded="false" />
-                <element signature="method#updateBonusesArray#0;class#GameState#0" expanded="false" />
-                <element signature="method#updateWallsArray#0;class#GameState#0" expanded="false" />
-                <element signature="e#19245#19246#0" expanded="true" />
-                <element signature="e#19272#19273#0" expanded="true" />
-                <element signature="e#19320#19321#0" expanded="true" />
-                <element signature="e#19357#19358#0" expanded="true" />
-                <element signature="e#19396#19397#0" expanded="true" />
-                <element signature="e#19424#19425#0" expanded="true" />
-                <element signature="e#19474#19475#0" expanded="true" />
-                <element signature="e#19513#19514#0" expanded="true" />
-                <element signature="e#19551#19552#0" expanded="true" />
-                <element signature="e#19578#19579#0" expanded="true" />
-                <element signature="e#19626#19627#0" expanded="true" />
-                <element signature="e#19663#19664#0" expanded="true" />
-                <element signature="e#19703#19704#0" expanded="true" />
-                <element signature="e#19732#19733#0" expanded="true" />
-                <element signature="e#19784#19785#0" expanded="true" />
-                <element signature="e#19825#19826#0" expanded="true" />
-                <element signature="e#19863#19864#0" expanded="true" />
-                <element signature="e#19890#19891#0" expanded="true" />
-                <element signature="e#19938#19939#0" expanded="true" />
-                <element signature="e#19975#19976#0" expanded="true" />
-                <element signature="e#20018#20019#0" expanded="true" />
-                <element signature="e#20051#20052#0" expanded="true" />
-                <element signature="e#20098#20099#0" expanded="true" />
-                <element signature="e#20133#20134#0" expanded="true" />
-                <element signature="e#20192#20193#0" expanded="true" />
-                <element signature="e#20227#20228#0" expanded="true" />
-                <element signature="e#20256#20257#0" expanded="true" />
-                <element signature="e#20283#20284#0" expanded="true" />
-                <element signature="e#20320#20321#0" expanded="true" />
-                <element signature="e#20352#20353#0" expanded="true" />
-                <element signature="e#20380#20381#0" expanded="true" />
-                <element signature="e#20407#20408#0" expanded="true" />
-                <element signature="e#20444#20445#0" expanded="true" />
-                <element signature="e#20476#20477#0" expanded="true" />
-                <element signature="e#20513#20514#0" expanded="true" />
-                <element signature="e#20546#20547#0" expanded="true" />
-                <element signature="e#20599#20600#0" expanded="true" />
-                <element signature="e#20643#20644#0" expanded="true" />
-                <element signature="e#20673#20674#0" expanded="true" />
-                <element signature="e#20702#20703#0" expanded="true" />
-                <element signature="e#20743#20744#0" expanded="true" />
-                <element signature="e#20779#20780#0" expanded="true" />
-                <element signature="e#20809#20810#0" expanded="true" />
-                <element signature="e#20838#20839#0" expanded="true" />
-                <element signature="e#20879#20880#0" expanded="true" />
-                <element signature="e#20915#20916#0" expanded="true" />
-                <element signature="e#20954#20955#0" expanded="true" />
-                <element signature="e#20989#20990#0" expanded="true" />
-                <element signature="e#21026#21027#0" expanded="true" />
-                <element signature="e#21059#21060#0" expanded="true" />
-                <element signature="e#21115#21116#0" expanded="true" />
-                <element signature="e#21160#21161#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="407">
+              <caret line="110" column="4" lean-forward="false" selection-start-line="110" selection-start-column="4" selection-end-line="116" selection-end-column="7" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EnemyDynamicTank2.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="EnemyDynamicTank2.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/EnemyTank/EnemyDynamicTank2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="18" column="15" lean-forward="false" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#559#560#0" expanded="true" />
-                <element signature="e#606#607#0" expanded="true" />
-                <element signature="method#defineAndShoot#0;class#EnemyDynamicTank2#0" expanded="false" />
-                <element signature="method#updateAngle#0;class#EnemyDynamicTank2#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EnemyStaticTank.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/EnemyTank/EnemyStaticTank.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="12" column="16" lean-forward="false" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EnemyStaticTank2.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/EnemyTank/EnemyStaticTank2.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="16" lean-forward="false" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#defineAndShoot#0;class#EnemyStaticTank2#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExtraLive.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Bonuses/ExtraLive.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+            <state relative-caret-position="1183">
+              <caret line="86" column="7" lean-forward="false" selection-start-line="86" selection-start-column="7" selection-end-line="86" selection-end-column="7" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EnemyTank.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/EnemyTank/EnemyTank.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="77" column="26" lean-forward="false" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
-              <folding>
-                <element signature="e#1289#1290#0" expanded="true" />
-                <element signature="e#1313#1314#0" expanded="true" />
-                <element signature="e#1338#1339#0" expanded="true" />
-                <element signature="e#1362#1363#0" expanded="true" />
-                <element signature="e#1393#1394#0" expanded="true" />
-                <element signature="e#1423#1424#0" expanded="true" />
-                <element signature="e#1454#1455#0" expanded="true" />
-                <element signature="e#1484#1485#0" expanded="true" />
-                <element signature="e#1515#1516#0" expanded="true" />
-                <element signature="e#1545#1546#0" expanded="true" />
-                <element signature="e#1580#1581#0" expanded="true" />
-                <element signature="e#1619#1620#0" expanded="true" />
-                <element signature="e#1654#1655#0" expanded="true" />
-                <element signature="e#1685#1686#0" expanded="true" />
-                <element signature="e#1717#1718#0" expanded="true" />
-                <element signature="e#1745#1746#0" expanded="true" />
-                <element signature="e#1800#1801#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -329,7 +134,6 @@
         <option value="$PROJECT_DIR$/src/Bonuses/TankRepair.java" />
         <option value="$PROJECT_DIR$/src/Bonuses/UpdateWeapon.java" />
         <option value="$PROJECT_DIR$/src/Bonuses/HeavyBulletCartridge.java" />
-        <option value="$PROJECT_DIR$/src/Bonuses/Bonus.java" />
         <option value="$PROJECT_DIR$/src/Bullet/Bullet.java" />
         <option value="$PROJECT_DIR$/src/LogicGraphic/GameState.java" />
         <option value="$PROJECT_DIR$/src/Blocks/SoftWall.java" />
@@ -337,12 +141,13 @@
         <option value="$PROJECT_DIR$/src/Blocks/HardWall.java" />
         <option value="$PROJECT_DIR$/src/Blocks/Ground.java" />
         <option value="$PROJECT_DIR$/src/Blocks/Wall.java" />
-        <option value="$PROJECT_DIR$/src/EnemyTank/EnemyDynamicTank.java" />
-        <option value="$PROJECT_DIR$/src/EnemyTank/EnemyDynamicTank2.java" />
         <option value="$PROJECT_DIR$/src/EnemyTank/EnemyStaticTank.java" />
         <option value="$PROJECT_DIR$/src/EnemyTank/EnemyStaticTank2.java" />
         <option value="$PROJECT_DIR$/src/EnemyTank/EnemyTank.java" />
         <option value="$PROJECT_DIR$/src/LogicGraphic/GameFrame.java" />
+        <option value="$PROJECT_DIR$/src/Bonuses/Bonus.java" />
+        <option value="$PROJECT_DIR$/src/EnemyTank/EnemyDynamicTank.java" />
+        <option value="$PROJECT_DIR$/src/EnemyTank/EnemyDynamicTank2.java" />
       </list>
     </option>
   </component>
@@ -374,25 +179,48 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="Normal Tanks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Normal Tanks" type="462c0819:PsiDirectoryNode" />
+              <item name="Normal_Tanks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Normal_Tanks" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Normal Tanks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Normal Tanks" type="462c0819:PsiDirectoryNode" />
+              <item name="Normal_Tanks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Normal_Tanks" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Normal_Tanks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Normal_Tanks" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
+              <item name="Save" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Normal_Tanks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Normal_Tanks" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Normal_Tanks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Normal_Tanks" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Bonuses" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Normal_Tanks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Normal_Tanks" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="EnemyTank" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -638,37 +466,86 @@
     <option name="totallyTimeSpent" value="177397000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-14" y="-14" width="3868" height="2098" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32944444" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.5058565" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994652" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24833333" sideWeight="0.4941435" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32944444" sideWeight="0.4941435" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16363636" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3988889" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.5087848" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39936608" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.5087848" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296355" sideWeight="0.49121523" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.49121523" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14787701" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.5058565" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39936608" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32944444" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32944444" sideWeight="0.4941435" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32944444" sideWeight="0.4941435" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14973262" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39936608" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -720,22 +597,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/ThreadPool.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/awt/image/BufferedImage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="67" column="13" lean-forward="false" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/jre/lib/rt.jar!/sun/audio/AudioStream.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ThreadPool.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/awt/Graphics.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -826,9 +687,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-          <folding />
+        <state relative-caret-position="470">
+          <caret line="72" column="117" lean-forward="false" selection-start-line="72" selection-start-column="117" selection-end-line="72" selection-end-column="117" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#515#516#0" expanded="false" />
+            <element signature="e#540#541#0" expanded="false" />
+            <element signature="e#587#588#0" expanded="false" />
+            <element signature="e#625#626#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -836,7 +703,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="1312" column="25" lean-forward="false" selection-start-line="1312" selection-start-column="25" selection-end-line="1312" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -848,65 +714,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Bonuses/Bonus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="29" column="40" lean-forward="false" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
-          <folding>
-            <element signature="e#410#411#0" expanded="false" />
-            <element signature="e#439#440#0" expanded="false" />
-            <element signature="e#596#597#0" expanded="false" />
-            <element signature="e#623#624#0" expanded="false" />
-            <element signature="e#652#653#0" expanded="false" />
-            <element signature="e#683#684#0" expanded="false" />
-            <element signature="e#714#715#0" expanded="false" />
-            <element signature="e#744#745#0" expanded="false" />
-            <element signature="e#775#776#0" expanded="false" />
-            <element signature="e#805#806#0" expanded="false" />
-            <element signature="e#837#838#0" expanded="false" />
-            <element signature="e#865#866#0" expanded="false" />
-            <element signature="e#890#891#0" expanded="false" />
-            <element signature="e#914#915#0" expanded="false" />
-            <element signature="e#939#940#0" expanded="false" />
-            <element signature="e#963#964#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Bullet/Bullet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="55" column="39" lean-forward="false" selection-start-line="55" selection-start-column="39" selection-end-line="55" selection-end-column="39" />
-          <folding>
-            <element signature="method#Bullet#0;class#Bullet#0" expanded="false" />
-            <element signature="method#updateUsable#0;class#Bullet#0" expanded="false" />
-            <element signature="method#expire#0;class#Bullet#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-          <folding>
-            <element signature="e#896#897#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Bullet/EnemyHeavyBullet2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Bullet/EnemyHeavyBullet1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+        <state relative-caret-position="333">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -915,38 +726,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="8" lean-forward="false" selection-start-line="5" selection-start-column="8" selection-end-line="8" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Bonuses/ExtraLive.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Bonuses/HeavyBulletCartridge.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Bonuses/LightBulletCartridge.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="16" lean-forward="false" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Bonuses/TankRepair.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -987,12 +766,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="532">
           <caret line="53" column="42" lean-forward="false" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="42" />
-          <folding>
-            <element signature="e#811#812#0" expanded="false" />
-            <element signature="e#835#836#0" expanded="false" />
-            <element signature="e#860#861#0" expanded="false" />
-            <element signature="e#884#885#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1010,178 +784,89 @@
             <element signature="method#shoot#0;class#Tank#0" expanded="false" />
             <element signature="method#hurt#0;class#Tank#0" expanded="false" />
             <element signature="method#updateLive#0;class#Tank#0" expanded="false" />
-            <element signature="e#8067#8068#0" expanded="true" />
-            <element signature="e#8106#8107#0" expanded="true" />
-            <element signature="e#8138#8139#0" expanded="true" />
-            <element signature="e#8168#8169#0" expanded="true" />
-            <element signature="e#8199#8200#0" expanded="true" />
-            <element signature="e#8229#8230#0" expanded="true" />
-            <element signature="e#8257#8258#0" expanded="true" />
-            <element signature="e#8281#8282#0" expanded="true" />
-            <element signature="e#8309#8310#0" expanded="true" />
-            <element signature="e#8333#8334#0" expanded="true" />
-            <element signature="e#8372#8373#0" expanded="true" />
-            <element signature="e#8411#8412#0" expanded="true" />
-            <element signature="e#8445#8446#0" expanded="true" />
-            <element signature="e#8478#8479#0" expanded="true" />
-            <element signature="e#8516#8517#0" expanded="true" />
-            <element signature="e#8553#8554#0" expanded="true" />
-            <element signature="e#8591#8592#0" expanded="true" />
-            <element signature="e#8628#8629#0" expanded="true" />
-            <element signature="e#8665#8666#0" expanded="true" />
-            <element signature="e#8701#8702#0" expanded="true" />
-            <element signature="e#8738#8739#0" expanded="true" />
-            <element signature="e#8774#8775#0" expanded="true" />
+            <element signature="e#8067#8068#0" expanded="false" />
+            <element signature="e#8106#8107#0" expanded="false" />
+            <element signature="e#8138#8139#0" expanded="false" />
+            <element signature="e#8168#8169#0" expanded="false" />
+            <element signature="e#8199#8200#0" expanded="false" />
+            <element signature="e#8229#8230#0" expanded="false" />
+            <element signature="e#8257#8258#0" expanded="false" />
+            <element signature="e#8281#8282#0" expanded="false" />
+            <element signature="e#8309#8310#0" expanded="false" />
+            <element signature="e#8333#8334#0" expanded="false" />
+            <element signature="e#8372#8373#0" expanded="false" />
+            <element signature="e#8411#8412#0" expanded="false" />
+            <element signature="e#8445#8446#0" expanded="false" />
+            <element signature="e#8478#8479#0" expanded="false" />
+            <element signature="e#8516#8517#0" expanded="false" />
+            <element signature="e#8553#8554#0" expanded="false" />
+            <element signature="e#8591#8592#0" expanded="false" />
+            <element signature="e#8628#8629#0" expanded="false" />
+            <element signature="e#8665#8666#0" expanded="false" />
+            <element signature="e#8701#8702#0" expanded="false" />
+            <element signature="e#8738#8739#0" expanded="false" />
+            <element signature="e#8774#8775#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EnemyTank/EnemyDynamicTank.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="21" column="15" lean-forward="false" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#updateStatus#1;class#EnemyDynamicTank#0" expanded="false" />
-            <element signature="method#defineAndShoot#0;class#EnemyDynamicTank#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EnemyTank/EnemyDynamicTank2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="18" column="15" lean-forward="false" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#559#560#0" expanded="true" />
-            <element signature="e#606#607#0" expanded="true" />
-            <element signature="method#defineAndShoot#0;class#EnemyDynamicTank2#0" expanded="false" />
-            <element signature="method#updateAngle#0;class#EnemyDynamicTank2#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EnemyTank/EnemyStaticTank.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="12" column="16" lean-forward="false" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EnemyTank/EnemyStaticTank2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="16" lean-forward="false" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#defineAndShoot#0;class#EnemyStaticTank2#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Bonuses/UpdateWeapon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/LogicGraphic/GameState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2566">
-          <caret line="99" column="25" lean-forward="false" selection-start-line="99" selection-start-column="25" selection-end-line="99" selection-end-column="25" />
+        <state relative-caret-position="1358">
+          <caret line="314" column="0" lean-forward="true" selection-start-line="314" selection-start-column="0" selection-end-line="314" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#initMap#0;class#GameState#0" expanded="false" />
-            <element signature="method#initObjects#0;class#GameState#0" expanded="false" />
-            <element signature="method#updateBulletsArray#0;class#GameState#0" expanded="false" />
-            <element signature="method#updateEnemyBulletsArray#0;class#GameState#0" expanded="false" />
-            <element signature="method#updateEnemyTanksArray#0;class#GameState#0" expanded="false" />
-            <element signature="method#updateBonusesArray#0;class#GameState#0" expanded="false" />
-            <element signature="method#updateWallsArray#0;class#GameState#0" expanded="false" />
-            <element signature="e#19245#19246#0" expanded="true" />
-            <element signature="e#19272#19273#0" expanded="true" />
-            <element signature="e#19320#19321#0" expanded="true" />
-            <element signature="e#19357#19358#0" expanded="true" />
-            <element signature="e#19396#19397#0" expanded="true" />
-            <element signature="e#19424#19425#0" expanded="true" />
-            <element signature="e#19474#19475#0" expanded="true" />
-            <element signature="e#19513#19514#0" expanded="true" />
-            <element signature="e#19551#19552#0" expanded="true" />
-            <element signature="e#19578#19579#0" expanded="true" />
-            <element signature="e#19626#19627#0" expanded="true" />
-            <element signature="e#19663#19664#0" expanded="true" />
-            <element signature="e#19703#19704#0" expanded="true" />
-            <element signature="e#19732#19733#0" expanded="true" />
-            <element signature="e#19784#19785#0" expanded="true" />
-            <element signature="e#19825#19826#0" expanded="true" />
-            <element signature="e#19863#19864#0" expanded="true" />
-            <element signature="e#19890#19891#0" expanded="true" />
-            <element signature="e#19938#19939#0" expanded="true" />
-            <element signature="e#19975#19976#0" expanded="true" />
-            <element signature="e#20018#20019#0" expanded="true" />
-            <element signature="e#20051#20052#0" expanded="true" />
-            <element signature="e#20098#20099#0" expanded="true" />
-            <element signature="e#20133#20134#0" expanded="true" />
-            <element signature="e#20192#20193#0" expanded="true" />
-            <element signature="e#20227#20228#0" expanded="true" />
-            <element signature="e#20256#20257#0" expanded="true" />
-            <element signature="e#20283#20284#0" expanded="true" />
-            <element signature="e#20320#20321#0" expanded="true" />
-            <element signature="e#20352#20353#0" expanded="true" />
-            <element signature="e#20380#20381#0" expanded="true" />
-            <element signature="e#20407#20408#0" expanded="true" />
-            <element signature="e#20444#20445#0" expanded="true" />
-            <element signature="e#20476#20477#0" expanded="true" />
-            <element signature="e#20513#20514#0" expanded="true" />
-            <element signature="e#20546#20547#0" expanded="true" />
-            <element signature="e#20599#20600#0" expanded="true" />
-            <element signature="e#20643#20644#0" expanded="true" />
-            <element signature="e#20673#20674#0" expanded="true" />
-            <element signature="e#20702#20703#0" expanded="true" />
-            <element signature="e#20743#20744#0" expanded="true" />
-            <element signature="e#20779#20780#0" expanded="true" />
-            <element signature="e#20809#20810#0" expanded="true" />
-            <element signature="e#20838#20839#0" expanded="true" />
-            <element signature="e#20879#20880#0" expanded="true" />
-            <element signature="e#20915#20916#0" expanded="true" />
-            <element signature="e#20954#20955#0" expanded="true" />
-            <element signature="e#20989#20990#0" expanded="true" />
-            <element signature="e#21026#21027#0" expanded="true" />
-            <element signature="e#21059#21060#0" expanded="true" />
-            <element signature="e#21115#21116#0" expanded="true" />
-            <element signature="e#21160#21161#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EnemyTank/EnemyTank.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="77" column="26" lean-forward="false" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
-          <folding>
-            <element signature="e#1289#1290#0" expanded="true" />
-            <element signature="e#1313#1314#0" expanded="true" />
-            <element signature="e#1338#1339#0" expanded="true" />
-            <element signature="e#1362#1363#0" expanded="true" />
-            <element signature="e#1393#1394#0" expanded="true" />
-            <element signature="e#1423#1424#0" expanded="true" />
-            <element signature="e#1454#1455#0" expanded="true" />
-            <element signature="e#1484#1485#0" expanded="true" />
-            <element signature="e#1515#1516#0" expanded="true" />
-            <element signature="e#1545#1546#0" expanded="true" />
-            <element signature="e#1580#1581#0" expanded="true" />
-            <element signature="e#1619#1620#0" expanded="true" />
-            <element signature="e#1654#1655#0" expanded="true" />
-            <element signature="e#1685#1686#0" expanded="true" />
-            <element signature="e#1717#1718#0" expanded="true" />
-            <element signature="e#1745#1746#0" expanded="true" />
-            <element signature="e#1800#1801#0" expanded="true" />
+            <element signature="e#8390#8391#0" expanded="false" />
+            <element signature="e#8417#8418#0" expanded="false" />
+            <element signature="e#8465#8466#0" expanded="false" />
+            <element signature="e#8502#8503#0" expanded="false" />
+            <element signature="e#8541#8542#0" expanded="false" />
+            <element signature="e#8569#8570#0" expanded="false" />
+            <element signature="e#8619#8620#0" expanded="false" />
+            <element signature="e#8658#8659#0" expanded="false" />
+            <element signature="e#8696#8697#0" expanded="false" />
+            <element signature="e#8723#8724#0" expanded="false" />
+            <element signature="e#8771#8772#0" expanded="false" />
+            <element signature="e#8808#8809#0" expanded="false" />
+            <element signature="e#8848#8849#0" expanded="false" />
+            <element signature="e#8877#8878#0" expanded="false" />
+            <element signature="e#8929#8930#0" expanded="false" />
+            <element signature="e#8970#8971#0" expanded="false" />
+            <element signature="e#9008#9009#0" expanded="false" />
+            <element signature="e#9035#9036#0" expanded="false" />
+            <element signature="e#9083#9084#0" expanded="false" />
+            <element signature="e#9120#9121#0" expanded="false" />
+            <element signature="e#9163#9164#0" expanded="false" />
+            <element signature="e#9196#9197#0" expanded="false" />
+            <element signature="e#9243#9244#0" expanded="false" />
+            <element signature="e#9278#9279#0" expanded="false" />
+            <element signature="e#9337#9338#0" expanded="false" />
+            <element signature="e#9372#9373#0" expanded="false" />
+            <element signature="e#9401#9402#0" expanded="false" />
+            <element signature="e#9428#9429#0" expanded="false" />
+            <element signature="e#9465#9466#0" expanded="false" />
+            <element signature="e#9497#9498#0" expanded="false" />
+            <element signature="e#9525#9526#0" expanded="false" />
+            <element signature="e#9552#9553#0" expanded="false" />
+            <element signature="e#9589#9590#0" expanded="false" />
+            <element signature="e#9621#9622#0" expanded="false" />
+            <element signature="e#9658#9659#0" expanded="false" />
+            <element signature="e#9691#9692#0" expanded="false" />
+            <element signature="e#9744#9745#0" expanded="false" />
+            <element signature="e#9788#9789#0" expanded="false" />
+            <element signature="e#9818#9819#0" expanded="false" />
+            <element signature="e#9847#9848#0" expanded="false" />
+            <element signature="e#9888#9889#0" expanded="false" />
+            <element signature="e#9924#9925#0" expanded="false" />
+            <element signature="e#9954#9955#0" expanded="false" />
+            <element signature="e#9983#9984#0" expanded="false" />
+            <element signature="e#10024#10025#0" expanded="false" />
+            <element signature="e#10060#10061#0" expanded="false" />
+            <element signature="e#10099#10100#0" expanded="false" />
+            <element signature="e#10134#10135#0" expanded="false" />
+            <element signature="e#10171#10172#0" expanded="false" />
+            <element signature="e#10204#10205#0" expanded="false" />
+            <element signature="e#10260#10261#0" expanded="false" />
+            <element signature="e#10305#10306#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1191,15 +876,187 @@
         <state relative-caret-position="2475">
           <caret line="193" column="21" lean-forward="false" selection-start-line="193" selection-start-column="21" selection-end-line="193" selection-end-column="21" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Maps/Map.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        <state relative-caret-position="776">
+          <caret line="86" column="27" lean-forward="false" selection-start-line="86" selection-start-column="27" selection-end-line="86" selection-end-column="27" />
+          <folding>
+            <element signature="e#572#573#0" expanded="false" />
+            <element signature="e#604#605#0" expanded="false" />
+            <element signature="e#694#695#0" expanded="false" />
+            <element signature="e#725#726#0" expanded="false" />
+            <element signature="e#1933#1934#0" expanded="false" />
+            <element signature="e#1963#1964#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MapEditor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3220">
+          <caret line="19" column="28" lean-forward="false" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EnemyTank/EnemyStaticTank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EnemyTank/EnemyStaticTank2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="39" column="4" lean-forward="false" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EnemyTank/EnemyTank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="864">
+          <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Bullet/EnemyHeavyBullet2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Normal_Tanks/src/Bonuses/Bonus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="813">
+          <caret line="90" column="4" lean-forward="true" selection-start-line="90" selection-start-column="4" selection-end-line="93" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Bonuses/Bonus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="89" column="7" lean-forward="false" selection-start-line="89" selection-start-column="7" selection-end-line="89" selection-end-column="7" />
+          <folding>
+            <element signature="e#604#605#0" expanded="true" />
+            <element signature="e#633#634#0" expanded="true" />
+            <element signature="e#845#846#0" expanded="true" />
+            <element signature="e#872#873#0" expanded="true" />
+            <element signature="e#961#962#0" expanded="true" />
+            <element signature="e#992#993#0" expanded="true" />
+            <element signature="e#1080#1081#0" expanded="true" />
+            <element signature="e#1110#1111#0" expanded="true" />
+            <element signature="e#1198#1199#0" expanded="true" />
+            <element signature="e#1228#1229#0" expanded="true" />
+            <element signature="e#1315#1316#0" expanded="true" />
+            <element signature="e#1343#1344#0" expanded="true" />
+            <element signature="e#1419#1420#0" expanded="true" />
+            <element signature="e#1443#1444#0" expanded="true" />
+            <element signature="e#1519#1520#0" expanded="true" />
+            <element signature="e#1543#1544#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Bonuses/ExtraLive.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Bonuses/HeavyBulletCartridge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Bonuses/LightBulletCartridge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="6" column="16" lean-forward="false" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Bonuses/TankRepair.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Bonuses/UpdateWeapon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Bullet/Bullet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4626">
+          <caret line="55" column="28" lean-forward="false" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="28" />
+          <folding>
+            <element signature="method#Bullet#0;class#Bullet#0" expanded="false" />
+            <element signature="method#updateUsable#0;class#Bullet#0" expanded="false" />
+            <element signature="method#expire#0;class#Bullet#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Bullet/EnemyHeavyBullet1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Normal_Tanks/src/EnemyTank/EnemyDynamicTank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="877">
+          <caret line="112" column="0" lean-forward="true" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Save/Map1Easy.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EnemyTank/EnemyDynamicTank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="110" column="4" lean-forward="false" selection-start-line="110" selection-start-column="4" selection-end-line="116" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EnemyTank/EnemyDynamicTank2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1183">
+          <caret line="86" column="7" lean-forward="false" selection-start-line="86" selection-start-column="7" selection-end-line="86" selection-end-column="7" />
           <folding />
         </state>
       </provider>
