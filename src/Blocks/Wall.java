@@ -1,5 +1,7 @@
 package Blocks;
 
+import LogicGraphic.GameState;
+
 abstract public class Wall {
     protected int x;
     protected int y;
@@ -12,6 +14,8 @@ abstract public class Wall {
     protected boolean exist;
 
     protected int type;
+
+    protected int health;
 
     public int getToShowX () {
         return toShowX;
@@ -36,7 +40,16 @@ abstract public class Wall {
     }
 
     public void calToShow () {
-        toShowX = x - imageRadius;
-        toShowY = y - imageRadius;
+        toShowX = x - GameState.frameStartX - imageRadius;
+        toShowY = y - GameState.frameStartY - imageRadius;
     }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+    public abstract void hurt(int damage);
 }

@@ -4,17 +4,18 @@ import LogicGraphic.GameState;
 
 public class EnemyStaticTank extends EnemyTank{
 
-    public EnemyStaticTank(int x, int y, long lastBulletShootTime, double lifeHardness) {
-        super(x, y, lastBulletShootTime, lifeHardness);
-        super.health=10*(int)lifeHardness;
+    public EnemyStaticTank(int x, int y, double lifeHardness) {
+        super(x, y, lifeHardness);
+        super.health=(int)(10*lifeHardness);
         bulletShootSpeed=900;
         areaDef=400;
         radiusOfImage=50;
+        type=11;
     }
 
 @Override
     public void updateStatus(double targetX, double targetY) {
-        calAngle((int)targetX,(int) targetY);
+        calAngle(targetX, targetY);
         if ((x - areaDef < targetX || x + areaDef > targetX) && (y - areaDef < targetY || y + areaDef < targetY)) {
             shoot((int)targetX,(int)targetY);
             updateToShow();
@@ -23,10 +24,23 @@ public class EnemyStaticTank extends EnemyTank{
 
     @Override
     public void updateStatus(double targetX, double targetY, double target2X, double target2Y) {
+        if((Math.abs(x-targetX)*Math.abs(x-targetX)*Math.abs(y-targetY)*Math.abs(y-targetY))<=(Math.abs(x-target2X)*Math.abs(x-target2X)*Math.abs(y-target2Y)*Math.abs(y-target2Y))) {
+            defineAndShoot(targetX, targetY);
+        }
+        else{
+            defineAndShoot(target2X, target2Y);
+        }
+    }
+    private void defineAndShoot(double target2X, double target2Y) {
+        calAngle(targetX, targetY);
+        if ((x - areaDef < target2X && x + areaDef > target2X) && (y - areaDef < target2Y && y + areaDef > target2Y)) {
+                shoot((int) target2X, (int) target2Y);
+                updateToShow();
 
+        }
     }
 
-    private void calAngle(int clickedX,int clickedY){
+    private void calAngle(double clickedX,double clickedY){
         if(clickedX==x) {
             angleRad = Math.atan((y - clickedY) / (x + 1 - clickedX));
         }

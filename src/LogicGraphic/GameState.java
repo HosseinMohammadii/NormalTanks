@@ -15,6 +15,8 @@ import Bullet.*;
 import Tank.*;
 import EnemyTank.*;
 import Bonuses.*;
+import Maps.*;
+import Blocks.*;
 
 
 /**
@@ -30,7 +32,7 @@ public class GameState {
     public static int frameStartX;
     public static int frameStartY;
     public static boolean gameOver;
-    public static boolean keyUp, keyDOWN, keyRIGHT, keyLEFT;
+    public static boolean keyUp, keyDOWN, keyRIGHT, keyLEFT,keyUpPer, keyDOWNPer, keyRIGHTPer, keyLEFTPer;
     public static boolean mousepress;
     public static boolean leftMouseClick;
     public static boolean rightMouseClick;
@@ -46,22 +48,26 @@ public class GameState {
     public static double mouseLiveY;
     public static boolean solo = false;
     public static boolean co_op = false;
-
+    public static int level;
     public static boolean easy = false;
     public static boolean normal = false;
     public static boolean hard = false;
+    public static Map map;
+    public static double hardness;
     public static ArrayList<Bullet> bullets;
     ArrayList<Bullet> bulletsPointers;
     public static ArrayList<Bullet>enemyBullets;
     ArrayList<Bullet>enemyBulletsPointer;
     public ArrayList<EnemyTank> enemyTanks;
-    public ArrayList<EnemyTank> enemyTanksPointer;
+     ArrayList<EnemyTank> enemyTanksPointer;
     public ArrayList<Tank> tanks;
     public ArrayList<Tank> tanksPointer;
     public ArrayList<Bonus> bonuses;
-    public ArrayList<Bonus> bonusesPointer;
+     ArrayList<Bonus> bonusesPointer;
+    public ArrayList<Wall> walls;
+     ArrayList<Wall> wallspointer;
     //public EnemyStaticTank ta=new EnemyStaticTank(600,600,System.currentTimeMillis(),1);
-    public EnemyDynamicTank tat=new EnemyDynamicTank(20,500,System.currentTimeMillis(),1);
+    public EnemyDynamicTank tat=new EnemyDynamicTank(20,500,1);
 
 
     public GameState() {
@@ -76,6 +82,17 @@ public class GameState {
         enemyBullets = new ArrayList<>();
         enemyBulletsPointer = new ArrayList<>();
         enemyTanks = new ArrayList<>();
+        enemyTanksPointer = new ArrayList<>();
+        tanks=new ArrayList<>();
+        tanksPointer = new ArrayList<>();
+        bonuses = new ArrayList<>();
+        bonusesPointer = new ArrayList<>();
+        walls = new ArrayList<>();
+        wallspointer = new ArrayList<>();
+        level=1;
+        solo=true;
+        easy=true;
+        tanks.add(new Tank(100,100));
 
         //
         keyUp = false;
@@ -93,91 +110,264 @@ public class GameState {
         //
         keyHandler = new KeyHandler();
         mouseHandler = new MouseHandler();
+        initMap();
+        initObjects();
     }
 
+    public void initMap () {
+        if (level == 1 && easy)
+            map = new MapOneEasy();
+        if (level == 1 && normal)
+            map = new MapOneNormal();
+        if (level == 1 && hard)
+            map = new MapOneHard();
+        if (level == 2 && easy)
+            map = new MapTwoEasy();
+        if (level == 2 && normal)
+            map = new MapTwoNormal();
+        if (level == 2 && hard)
+            map = new MapTwoHard();
+        if(easy)
+            hardness=1;
+        if(normal)
+            hardness=1.4;
+        if(hard)
+            hardness=1.8;
+    }
+
+    public void initObjects () {
+        for (int j = 0; j < 30; j++) {
+            for (int i = 0; i < 25; i++) {
+                if (map.getNumbers()[i][j].equals( "9" ))
+                    walls.add( new Ground( (i * 100) + 50, (j * 100) + 50 ) );
+                if (map.getNumbers()[i][j].equals( "1" ))
+                    walls.add( new SoftWall( (i * 100) + 50, (j * 100) + 50 ) );
+                if (map.getNumbers()[i][j].equals( "2" ))
+                    walls.add( new HardWall( (i * 100) + 50, (j * 100) + 50 ) );
+                if (map.getNumbers()[i][j].equals( "3" ))
+                    walls.add( new Plant( (i * 100) + 50, (j * 100) + 50 ) );
+                if (map.getNumbers()[i][j].equals( "91" )) {
+                    walls.add( new Ground( (i * 100) + 50, (j * 100) + 50 ) );
+                    bonuses.add( new UpdateWeapon( (i * 100) + 50, (j * 100) + 50 ) );
+                }
+                if (map.getNumbers()[i][j].equals( "92" )) {
+                    walls.add( new Ground( (i * 100) + 50, (j * 100) + 50 ) );
+                    bonuses.add( new HeavyBulletCartridge( (i * 100) + 50, (j * 100) + 50 ) );
+                }
+                if (map.getNumbers()[i][j].equals( "93" )) {
+                    walls.add( new Ground( (i * 100) + 50, (j * 100) + 50 ) );
+                    bonuses.add( new LightBulletCartridge( (i * 100) + 50, (j * 100) + 50 ) );
+                }
+                if (map.getNumbers()[i][j].equals( "94" )) {
+                    walls.add( new Ground( (i * 100) + 50, (j * 100) + 50 ) );
+                    bonuses.add( new ExtraLive( (i * 100) + 50, (j * 100) + 50 ) );
+                }
+                if (map.getNumbers()[i][j].equals( "95" )) {
+                    walls.add( new Ground( (i * 100) + 50, (j * 100) + 50 ) );
+                    bonuses.add( new TankRepair( (i * 100) + 50, (j * 100) + 50 ) );
+                }
+                if (map.getNumbers()[i][j].equals( "11" )) {
+                    walls.add( new SoftWall( (i * 100) + 50, (j * 100) + 50 ) );
+                    bonuses.add( new UpdateWeapon( (i * 100) + 50, (j * 100) + 50 ) );
+                }
+                if (map.getNumbers()[i][j].equals( "12" )) {
+                    walls.add( new SoftWall( (i * 100) + 50, (j * 100) + 50 ) );
+                    bonuses.add( new HeavyBulletCartridge( (i * 100) + 50, (j * 100) + 50 ) );
+                }
+                if (map.getNumbers()[i][j].equals( "13" )) {
+                    walls.add( new SoftWall( (i * 100) + 50, (j * 100) + 50 ) );
+                    bonuses.add( new LightBulletCartridge( (i * 100) + 50, (j * 100) + 50 ) );
+                }
+                if (map.getNumbers()[i][j].equals( "14" )) {
+                    walls.add( new SoftWall( (i * 100) + 50, (j * 100) + 50 ) );
+                    bonuses.add( new ExtraLive( (i * 100) + 50, (j * 100) + 50 ) );
+                }
+                if (map.getNumbers()[i][j].equals( "15" )) {
+                    walls.add( new SoftWall( (i * 100) + 50, (j * 100) + 50 ) );
+                    bonuses.add( new TankRepair( (i * 100) + 50, (j * 100) + 50 ) );
+                }
+                if (map.getNumbers()[i][j].equals( "61" )) {
+                    enemyTanks.add( new EnemyStaticTank( (i * 100) + 50, (j * 100) + 50 ,hardness));
+                    bonuses.add( new UpdateWeapon( (i * 100) + 50, (j * 100) + 50 ) );
+                }
+                if (map.getNumbers()[i][j].equals( "62" )) {
+                    enemyTanks.add( new EnemyStaticTank((i * 100) + 50, (j * 100) + 50 ,hardness ));
+                    bonuses.add( new HeavyBulletCartridge( (i * 100) + 50, (j * 100) + 50 ) );
+                }
+                if (map.getNumbers()[i][j].equals( "63" )) {
+                    enemyTanks.add( new EnemyStaticTank((i * 100) + 50, (j * 100) + 50 ,hardness ));
+                    bonuses.add( new LightBulletCartridge( (i * 100) + 50, (j * 100) + 50 ) );
+                }
+                if (map.getNumbers()[i][j].equals( "64" )) {
+                    enemyTanks.add( new EnemyStaticTank((i * 100) + 50, (j * 100) + 50 ,hardness) );
+                    bonuses.add( new ExtraLive( (i * 100) + 50, (j * 100) + 50 ) );
+                }
+                if (map.getNumbers()[i][j].equals( "65" )) {
+                    enemyTanks.add( new EnemyStaticTank( (i * 100) + 50, (j * 100) + 50 ,hardness ));
+                    bonuses.add( new TankRepair( (i * 100) + 50, (j * 100) + 50 ) );
+                }
+                if (map.getNumbers()[i][j].equals( "71" )) {
+                    enemyTanks.add( new EnemyStaticTank2( (i * 100) + 50, (j * 100) + 50 ,hardness ));
+                    bonuses.add( new UpdateWeapon( (i * 100) + 50, (j * 100) + 50 ) );
+                }
+                if (map.getNumbers()[i][j].equals( "72" )) {
+                    enemyTanks.add( new EnemyStaticTank2((i * 100) + 50, (j * 100) + 50 ,hardness ));
+                    bonuses.add( new HeavyBulletCartridge( (i * 100) + 50, (j * 100) + 50 ) );
+                }
+                if (map.getNumbers()[i][j].equals( "73" )) {
+                    enemyTanks.add( new EnemyStaticTank2((i * 100) + 50, (j * 100) + 50 ,hardness));
+                    bonuses.add( new LightBulletCartridge( (i * 100) + 50, (j * 100) + 50 ) );
+                }
+                if (map.getNumbers()[i][j].equals( "74" )) {
+                    enemyTanks.add( new EnemyStaticTank2((i * 100) + 50, (j * 100) + 50 ,hardness ));
+                    bonuses.add( new ExtraLive( (i * 100) + 50, (j * 100) + 50 ) );
+                }
+                if (map.getNumbers()[i][j].equals( "75" )) {
+                    enemyTanks.add( new EnemyStaticTank2((i * 100) + 50, (j * 100) + 50 ,hardness));
+                    bonuses.add( new TankRepair( (i * 100) + 50, (j * 100) + 50 ) );
+                }
+            }
+        }
+    }
 
     /**
      * The method which updates the game state.
      */
     public void update() {
 
+        keyRIGHTPer = true;
+        keyLEFTPer = true;
+        keyUpPer = true;
+        keyDOWNPer = true;
+
         mouseLiveX = MouseInfo.getPointerInfo().getLocation().getX();
         mouseLiveY = MouseInfo.getPointerInfo().getLocation().getY();
-        tank.update();
-        tat.updateStatus(tank.getX(),tank.getY());
 
-        if(leftMouseClick){
-            if (tank.getPresentGun() == 1 && tank.getHeavyGunRemain() > 0 && tank.getHeavyGunLevel() == 1) {
-                if (System.currentTimeMillis() >= (tank.lastBulletShootTime + tank.getBulletShootSpeed())) {
-                    bullets.add(new HeavyBullet((int) tank.getX(), (int) tank.getY(), (int) mouseLiveX, (int) mouseLiveY));
-                    tank.shoot();
-                    tank.lastBulletShootTime = System.currentTimeMillis();
+        if (tanks.get(0).getToShowY() <= 300)
+            frameStartY -= 300 - tanks.get(0).getToShowY();
+        if (tanks.get(0).getToShowY() >= GameFrame.HEIGHT - 300)
+            frameStartY += tanks.get(0).getToShowY() - (GameFrame.HEIGHT - 300);
+        if (tanks.get(0).getToShowX() <= 300)
+            frameStartX -= 300 - tanks.get(0).getToShowX();
+        if (tanks.get(0).getToShowX() >= GameFrame.WIDTH - 300)
+            frameStartX += tanks.get(0).getToShowX() - (GameFrame.WIDTH - 300);
+
+        frameStartX = Math.max(frameStartX, 0);
+        frameStartX = Math.min(frameStartX, map.getMapWidth() - GameFrame.WIDTH);
+        frameStartY = Math.max(frameStartY, 0);
+        frameStartY = Math.min(frameStartY, map.getMapHeight() - GameFrame.HEIGHT);
+
+        if (leftMouseClick) {
+            if (tanks.get(0).getPresentGun() == 1 && tanks.get(0).getHeavyGunRemain() > 0 && tanks.get(0).getHeavyGunLevel() == 1) {
+                if (System.currentTimeMillis() >= (tanks.get(0).lastBulletShootTime + tanks.get(0).getBulletShootSpeed())) {
+                    bullets.add(new HeavyBullet((int) tanks.get(0).getX(), (int) tanks.get(0).getY(), (int) mouseLiveX, (int) mouseLiveY));
+                    tanks.get(0).shoot();
+                    tanks.get(0).lastBulletShootTime = System.currentTimeMillis();
                 }
-            } else if (tank.getPresentGun() == 1 && tank.getHeavyGunRemain() > 0 && tank.getHeavyGunLevel() == 2) {
-                if (System.currentTimeMillis() >= (tank.lastBulletShootTime + tank.getBulletShootSpeed())) {
-                    bullets.add(new HeavyBullet2((int) tank.getX(), (int) tank.getY(), (int) mouseLiveX, (int) mouseLiveY));
-                    tank.shoot();
-                    tank.lastBulletShootTime = System.currentTimeMillis();
+            } else if (tanks.get(0).getPresentGun() == 1 && tanks.get(0).getHeavyGunRemain() > 0 && tanks.get(0).getHeavyGunLevel() == 2) {
+                if (System.currentTimeMillis() >= (tanks.get(0).lastBulletShootTime + tanks.get(0).getBulletShootSpeed())) {
+                    bullets.add(new HeavyBullet2((int) tanks.get(0).getX(), (int) tanks.get(0).getY(), (int) mouseLiveX, (int) mouseLiveY));
+                    tanks.get(0).shoot();
+                    tanks.get(0).lastBulletShootTime = System.currentTimeMillis();
                 }
-            } else if (tank.getPresentGun() == 2 && tank.getLightGunRemain() > 0 && tank.getLightGunLevel() == 1) {
-                if (System.currentTimeMillis() >= (tank.lastBulletShootTime + tank.getBulletShootSpeed())) {
-                    bullets.add(new LightBullet((int) tank.getX(), (int) tank.getY(), (int) mouseLiveX, (int) mouseLiveY));
-                    tank.shoot();
-                    tank.lastBulletShootTime = System.currentTimeMillis();
+            } else if (tanks.get(0).getPresentGun() == 2 && tanks.get(0).getLightGunRemain() > 0 && tanks.get(0).getLightGunLevel() == 1) {
+                if (System.currentTimeMillis() >= (tanks.get(0).lastBulletShootTime + tanks.get(0).getBulletShootSpeed())) {
+                    bullets.add(new LightBullet((int) tanks.get(0).getX(), (int) tanks.get(0).getY(), (int) mouseLiveX, (int) mouseLiveY));
+                    tanks.get(0).shoot();
+                    tanks.get(0).lastBulletShootTime = System.currentTimeMillis();
                 }
-            } else if (tank.getPresentGun() == 2 && tank.getLightGunRemain() > 0 && tank.getLightGunLevel() == 2) {
-                if (System.currentTimeMillis() >= (tank.lastBulletShootTime + tank.getBulletShootSpeed())) {
-                    bullets.add(new LightBullet2((int) tank.getX(), (int) tank.getY(), (int) mouseLiveX, (int) mouseLiveY));
-                    tank.shoot();
-                    tank.lastBulletShootTime = System.currentTimeMillis();
+            } else if (tanks.get(0).getPresentGun() == 2 && tanks.get(0).getLightGunRemain() > 0 && tanks.get(0).getLightGunLevel() == 2) {
+                if (System.currentTimeMillis() >= (tanks.get(0).lastBulletShootTime + tanks.get(0).getBulletShootSpeed())) {
+                    bullets.add(new LightBullet2((int) tanks.get(0).getX(), (int) tanks.get(0).getY(), (int) mouseLiveX, (int) mouseLiveY));
+                    tanks.get(0).shoot();
+                    tanks.get(0).lastBulletShootTime = System.currentTimeMillis();
+                }
+            }
+        }
+        if (enemyTanks.size() > 0){
+            for (EnemyTank tank : enemyTanks) {
+                for (Bullet bullet : bullets) {
+                    if (tank.getX() - 30 < bullet.getX() && tank.getX() + 30 > bullet.getX() && tank.getY() - 30 < bullet.getY() && tank.getY() + 30 > bullet.getY()) {
+                        tank.hurt(bullet.getDamage());
+                        bullet.expire();
+                    }
+                }
+            }
+    }
+        for(Tank tank: tanks) {
+            for (Wall block : walls) {
+                if ((block.getX() <= tank.getX() + 95) && (block.getY() <= tank.getY() + 95) && (block.getY() >= tank.getY() - 95))
+                    keyRIGHTPer = false;
+                else
+                    keyRIGHTPer = true;
+                if ((block.getX() >= tank.getX() - 95) && (block.getY() <= tank.getY() + 95) && (block.getY() >= tank.getY() - 95))
+                    keyLEFTPer = false;
+                else
+                    keyLEFTPer = true;
+                if ((block.getY() >= tank.getY() - 95) && (block.getX() <= tank.getX() + 95) && (block.getX() >= tank.getX() - 95))
+                    keyUpPer = false;
+                else
+                    keyUpPer = true;
+                if ((block.getY() <= tank.getY() + 95) && (block.getX() <= tank.getX() + 95) && (block.getX() >= tank.getX() - 95))
+                    keyDOWNPer = false;
+                else
+                    keyDOWNPer = true;
+            }
+            if (enemyBullets.size() > 0){
+                for (Bullet bullet : enemyBullets) {
+                    if (tank.getX() - 30 < bullet.getX() && tank.getX() + 30 > bullet.getX() && tank.getY() - 30 < bullet.getY() && tank.getY() + 30 > bullet.getY()) {
+                        tank.hurt(bullet.getDamage());
+                        bullet.expire();
+                    }
+                }
+            }
+
+            if(bonuses.size()>0){
+                for(Bonus bonus:bonuses) {
+                    if (tank.getX() - 30 < bonus.getX() && tank.getX() + 30 > bonus.getX() && tank.getY() - 30 < bonus.getY() && tank.getY() + 30 > bonus.getY()) {
+                        if (bonus.getType() == 101) {
+                            tank.extraLive();
+                            bonus.eat();
+                        } else if (bonus.getType() == 102) {
+                            tank.upgradeHeavyRemain(bonus.giveBonus());
+                            bonus.eat();
+                        } else if (bonus.getType() == 103) {
+                            tank.upgradeLightRemain(bonus.giveBonus());
+                            bonus.eat();
+                        } else if (bonus.getType() == 104) {
+                            tank.rapair();
+                            bonus.eat();
+                        } else if (bonus.getType() == 105) {
+                            tank.upgradeWeapon();
+                            bonus.eat();
+                         }
+                    }
                 }
             }
         }
 
-        for(EnemyTank tank:enemyTanks){
-            for(Bullet bullet : bullets){
-                if(tank.getX() - 40 < bullet.getX() && tank.getX() + 30 > bullet.getX() && tank.getY() - 40 < bullet.getY() && tank.getY() + 30 > bullet.getY()){
-                    tank.hurt(bullet.getDamage());
-                    bullet.expire();
-                }
-            }
-        }
-        for(Tank tank: tanks){
-            for(Bullet bullet : enemyBullets){
-                if(tank.getX() - 40 < bullet.getX() && tank.getX() + 30 > bullet.getX() && tank.getY() - 40 < bullet.getY() && tank.getY() + 30 > bullet.getY()){
-                    tank.hurt(bullet.getDamage());
-                    bullet.expire();
-                }
-            }
-            for(Bonus bonus:bonuses){
-                if(tank.getX() - 40 < bonus.getX() && tank.getX() + 30 > bonus.getX() && tank.getY() - 40 < bonus.getY() && tank.getY() + 30 > bonus.getY()){
-                    if(bonus.getType()==101) {
-                        tank.extraLive();
-                        bonus.eat();
+        for(Wall block : walls) {
+            if (bullets.size() > 0){
+                for (Bullet bullet : bullets) {
+                    if (block.getType() == 201) {
+                        if (block.getX() - 30 < bullet.getX() && block.getX() + 30 > bullet.getX() && block.getY() - 30 < bullet.getY() && block.getY() + 30 > bullet.getY()) {
+                            block.hurt(bullet.getDamage());
+                            bullet.expire();
+                        }
                     }
-                    else if(bonus.getType()==102) {
-                        tank.upgradeHeavyRemain(bonus.giveBonus());
-                        bonus.eat();
+                    if (block.getType() == 202) {
+                        if (block.getX() - 30 < bullet.getX() && block.getX() + 30 > bullet.getX() && block.getY() - 30 < bullet.getY() && block.getY() + 30 > bullet.getY()) {
+                            bullet.expire();
+                        }
                     }
-                    else if(bonus.getType()==103) {
-                        tank.upgradeLightRemain(bonus.giveBonus());
-                        bonus.eat();
-                    }
-                    else if(bonus.getType()==104) {
-                        tank.rapair();
-                        bonus.eat();
-                    }
-                    else if(bonus.getType()==105) {
-                        tank.upgradeWeapon();
-                        bonus.eat();
-                    }
-
                 }
             }
         }
         updateBulletsArray();
         updateEnemyBulletsArray();
-        updateEnenyTanksArray();
+        updateEnemyTanksArray();
+        updateBonusesArray();
+        updateWallsArray();
 
 
 
@@ -209,7 +399,7 @@ public class GameState {
         enemyBulletsPointer.clear();
     }
 
-    private void updateEnenyTanksArray(){
+    private void updateEnemyTanksArray(){
         for(EnemyTank tank : enemyTanks){
             if(solo)
             tank.updateStatus(tanks.get(0).getX(),tanks.get(0).getY());
@@ -222,6 +412,28 @@ public class GameState {
         for(EnemyTank tan:enemyTanksPointer)
             enemyTanks.remove(tan);
         enemyTanksPointer.clear();
+    }
+
+    private void updateBonusesArray(){
+        for(Bonus bonus : bonuses){
+            if(!bonus.isExist())
+                bonusesPointer.add(bonus);
+        }
+        for(Bonus bonus : bonusesPointer){
+                bonuses.remove(bonus);
+        }
+        bonusesPointer.clear();
+    }
+
+    private void updateWallsArray(){
+        for(Wall block : walls){
+            if(!block.isExist())
+                wallspointer.add(block);
+        }
+        for(Wall block : wallspointer){
+            walls.remove(block);
+        }
+        wallspointer.clear();
     }
 
     public static boolean isSolo() {
@@ -339,17 +551,21 @@ public class GameState {
         @Override
         public void keyPressed(KeyEvent e) {
             switch (e.getKeyCode()) {
-                case KeyEvent.VK_UP:
-                    keyUp = true;
+                case KeyEvent.VK_W:
+                    if(keyUpPer)
+                        keyUp = true;
                     break;
-                case KeyEvent.VK_DOWN:
-                    keyDOWN = true;
+                case KeyEvent.VK_S:
+                    if(keyDOWNPer)
+                        keyDOWN = true;
                     break;
-                case KeyEvent.VK_LEFT:
-                    keyLEFT = true;
+                case KeyEvent.VK_A:
+                    if(keyLEFTPer)
+                        keyLEFT = true;
                     break;
-                case KeyEvent.VK_RIGHT:
-                    keyRIGHT = true;
+                case KeyEvent.VK_D:
+                    if(keyRIGHTPer)
+                        keyRIGHT = true;
                     break;
 
 
@@ -362,17 +578,18 @@ public class GameState {
         @Override
         public void keyReleased(KeyEvent e) {
             switch (e.getKeyCode()) {
-                case KeyEvent.VK_UP:
+                case KeyEvent.VK_W:
                     keyUp = false;
                     break;
-                case KeyEvent.VK_DOWN:
+                case KeyEvent.VK_S:
                     keyDOWN = false;
                     break;
-                case KeyEvent.VK_LEFT:
+                case KeyEvent.VK_A:
                     keyLEFT = false;
                     break;
-                case KeyEvent.VK_RIGHT:
-                    keyRIGHT = false;
+                case KeyEvent.VK_D:
+                    if(keyRIGHTPer)
+                        keyRIGHT = false;
                     break;
             }
         }

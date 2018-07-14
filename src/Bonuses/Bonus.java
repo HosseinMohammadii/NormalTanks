@@ -1,4 +1,7 @@
 package Bonuses;
+
+import LogicGraphic.GameState;
+
 //
 public abstract class Bonus {
     protected int x;
@@ -23,8 +26,8 @@ public abstract class Bonus {
         exist = false;
     }
     private void updateToShow(){
-        toShowX=x-25;
-        toShowY=y-25;
+        toShowX=x- GameState.frameStartX-25;
+        toShowY=y- GameState.frameStartY-25;
     }
 
     public int getType() {

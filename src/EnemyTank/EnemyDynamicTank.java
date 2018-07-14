@@ -6,9 +6,9 @@ import LogicGraphic.GameState;
 public class EnemyDynamicTank extends EnemyTank {
 
 
-    public EnemyDynamicTank(int x, int y, long lastBulletShootTime, double lifeHardness) {
-        super(x, y, lastBulletShootTime, lifeHardness);
-        health = 10 * (int) lifeHardness;
+    public EnemyDynamicTank(int x, int y, double lifeHardness) {
+        super(x, y, lifeHardness);
+        super.health=(int)(10*lifeHardness);
         areaDef=350;
         bulletShootSpeed=1000;
         //1000
@@ -19,22 +19,13 @@ public class EnemyDynamicTank extends EnemyTank {
         angleRad=0;
         radiusOfImage=50;
         areaDef2=100;
+        type=1;
     }
 
 
 @Override
 public void updateStatus(double targetX, double targetY) {
-    if ((x - areaDef < targetX && x + areaDef > targetX) && (y - areaDef < targetY && y + areaDef > targetY)) {
-        if ((x + areaDef2 > targetX && x - areaDef2 < targetX) && (y + areaDef2 > targetY && y - areaDef2 < targetY)) {
-        }else{
-            calAngle(targetX, targetY);
-            updateAngle();
-            updateByAngleDeg();
-            updateToShow();
-//        updateLoc(targetX,targetY);
-        }
-        shoot((int) targetX, (int) targetY);
-    }
+    defineAndShoot(targetX,targetY);
 }
 
 

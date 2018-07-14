@@ -52,8 +52,8 @@ public class Bullet {
     public void updateLoc(){
         x = (int) (this.sourceX-GameState.frameStartX+radius*Math.cos(angleDeg*Math.PI/180));
         y = (int) (this.sourceY-GameState.frameStartX+radius*Math.sin(angleDeg*Math.PI/180));
-        toShowX=x+toCenterX;
-        toShowY=y+toCenterY;
+        toShowX=x-GameState.frameStartX+toCenterX;
+        toShowY=y-GameState.frameStartX+toCenterY;
         radius+=speed;
         updateUsable();
     }

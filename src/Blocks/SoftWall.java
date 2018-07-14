@@ -12,11 +12,14 @@ public class SoftWall extends Wall {
 
     }
 
-    public void healthReducing (int damage) {
-        health = health - damage;
-        if (health < 0)
-            health = 0;
+    @Override
+    public void hurt(int damage) {
+        health-=damage;
+        if(health<=0)
+            exist=false;
+        update();
     }
+
 
     private void update () {
         if (health == 0)

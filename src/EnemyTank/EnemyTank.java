@@ -26,10 +26,10 @@ public abstract class EnemyTank {
     protected double requestAngleDeg;
     protected double requestAngleRad;
 
-    public EnemyTank(int x, int y,long lastBulletShootTime,double lifeHardness) {
+    public EnemyTank(int x, int y,double lifeHardness) {
         this.x = x;
         this.y = y;
-        this.lastBulletShootTime = lastBulletShootTime;
+        this.lastBulletShootTime = System.currentTimeMillis();
         alive=true;
     }
     public abstract void updateStatus(double targetX,double targetY);
@@ -41,7 +41,6 @@ public abstract class EnemyTank {
         if(health<=0)
             alive=false;
     }
-
 
 
     public int getX() {
@@ -76,5 +75,7 @@ public abstract class EnemyTank {
         return alive;
     }
 
-
+    public int getType() {
+        return type;
+    }
 }
